@@ -1,7 +1,6 @@
 # GlowEngine
-Glow Engine is a 3D game engine designed with DirectX 11 with the sole purpose to create pixel art style games.
-It provides the user with a set of tools such as model loading, point lights, and scene creation.
+Glow Engine is a 3D graphics engine made with DirectX 11, used to create pixel-art style games.
 
 # Developers
-. Callen Betts
+Callen Betts
 
