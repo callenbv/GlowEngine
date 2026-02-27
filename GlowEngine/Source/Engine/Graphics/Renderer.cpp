@@ -9,18 +9,14 @@
 #include "stdafx.h"
 #include "Renderer.h"
 #include "Engine/GlowEngine.h"
-#include "Camera/Camera.h"
 #include "Engine/Entity/Entity.h"
 #include "Engine/Entity/EntityList/EntityList.h"
 #include "Engine/Graphics/Textures/Texture.h"
 #include "Engine/Graphics/Window/Window.h"
 #include "Engine/Graphics/Textures/stb_image.h"
-#include "UI/Editor/GlowGui.h"
-#include "Shaders/ShaderManager.h"
 #include "Engine/Graphics/Textures/TextureLibrary.h"
 #include <filesystem>
 #include "Game/Scene/SceneSystem.h"
-#include "Engine/Graphics/Lighting/Shadows/ShadowSystem.h"
 
 // define the amount of max lights we can have
 #define MAXLIGHTS 8
@@ -55,7 +51,7 @@ Graphics::Renderer::Renderer(HWND handle)
   // shadow system
   shadowSystem = new Lighting::ShadowSystem(device,deviceContext);
   //background
-  float bgCol[4] = { 0.4,0.3,0.4,1 };
+  float bgCol[4] = { 0.4f,0.3f,0.4f,1.f };
   setBackgroundColor(bgCol);
 }
 
@@ -311,7 +307,12 @@ void Graphics::Renderer::createDepthStencil()
   HRESULT hr = device->CreateTexture2D(&depthStencilDesc, NULL, &depthStencilBuffer);
   if (FAILED(hr))
   {
-    Logger::error("Failed to create depth stencil texture");
+      throw std::exception("ERROR: Failed to create depth stencil texture");
+  }
+
+  if (!depthStencilBuffer)
+  {
+      throw std::exception("ERROR: Failed to create depth stencil buffer");
   }
 
   // Create the depth stencil view
@@ -394,8 +395,8 @@ void Graphics::Renderer::UpdateBuffers()
   // temporary global light data for testing
   GlobalLightBuffer lightData;
   lightData.cameraPosition = { DirectX::XMVectorGetX(camera->getPosition()),DirectX::XMVectorGetY(camera->getPosition()),DirectX::XMVectorGetZ(camera->getPosition()) };
-  lightData.lightColor = { 0.75,0.75,0.75 };
-  lightData.lightDirection = { 0.5,-0.8,-0.5 };
+  lightData.lightColor = { 0.75f,0.75f,0.75f };
+  lightData.lightDirection = { 0.5f,-0.8f,-0.5f };
   globalLightBuffer->set(lightData);
 
   // for now, we just have one light

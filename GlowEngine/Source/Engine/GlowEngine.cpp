@@ -112,7 +112,7 @@ bool Engine::GlowEngine::run()
     // update our FPS
     if (fpsTimer >= 1.0f)
     {
-      fps = frameCount;
+      fps = static_cast<int>(frameCount);
       frameCount = 0;
       fpsTimer -= 1.0f;
     }

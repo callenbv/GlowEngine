@@ -6,7 +6,6 @@
 //
 // description: The actor class is an abstracted version of entity. It provides us an interface to easily
 //  interact with our entities and their components without having to do any sort of gross "get" chains
-//
 /
 */
 

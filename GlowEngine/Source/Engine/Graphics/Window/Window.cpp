@@ -14,11 +14,18 @@
 // construct the window
 Graphics::Window::Window()
   : 
-  windowWidth((float)GetSystemMetrics(SM_CXSCREEN)/1.25f),
-  windowHeight((float)GetSystemMetrics(SM_CYSCREEN)/1.25f)
+    aspectRatio(1),
+    engine(nullptr),
+    input(nullptr),
+    windowHandle(nullptr),
+    hInstance(nullptr)
 {
-  windowClassName = L"Otherglow Window";
-  windowName = L"Otherglow";
+    SetProcessDPIAware();
+    SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
+    windowWidth = static_cast<int>(GetSystemMetrics(SM_CXSCREEN) / 1.25f);
+    windowHeight = static_cast<int>(GetSystemMetrics(SM_CYSCREEN) / 1.25f);
+    windowClassName = L"Otherglow Window";
+    windowName = L"Otherglow";
 }
 
 // setup the window and register it in windows
@@ -105,18 +112,18 @@ LRESULT Graphics::Window::windowProc(HWND hWnd, UINT message, WPARAM wParam, LPA
   {
     // when a key is first triggered, set the keystate to active
   case WM_KEYDOWN:
-    input->onKeyTriggered(wParam);
+    input->onKeyTriggered(static_cast<int>(wParam));
     break;
 
     // when a key is released, you should reset the keystate and call "released"
   case WM_KEYUP:
-    input->onKeyRelease(wParam);
+    input->onKeyRelease(static_cast<int>(wParam));
     break;
 
     // Mouse wheel scrolled
   case WM_MOUSEWHEEL:
   {
-    input->onMouseScroll(wParam);
+    input->onMouseScroll(static_cast<int>(wParam));
     break;
   }
 
@@ -133,7 +140,7 @@ LRESULT Graphics::Window::windowProc(HWND hWnd, UINT message, WPARAM wParam, LPA
     else if (message == WM_MBUTTONDOWN)
       button = MK_MBUTTON;
 
-    input->onKeyTriggered(button);
+    input->onKeyTriggered(static_cast<int>(button));
     break;
   }
 
@@ -150,7 +157,7 @@ LRESULT Graphics::Window::windowProc(HWND hWnd, UINT message, WPARAM wParam, LPA
     else if (message == WM_MBUTTONUP)
       button = MK_MBUTTON;
 
-    input->onKeyRelease(button);
+    input->onKeyRelease(static_cast<int>(button));
     break;
   }
 

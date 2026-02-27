@@ -341,6 +341,8 @@ Entities::EntityList* Editor::SceneEditor::FindEntityList(Entities::EntityList* 
 				return list;
 		}
 	}
+	
+	return nullptr;
 }
 
 // used to add new entity containers to the scene hierarchy when we right click

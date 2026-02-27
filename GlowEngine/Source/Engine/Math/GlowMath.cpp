@@ -16,8 +16,8 @@
 // method to turn screen coordinates into world coordinates; used for selecting objects or interacting with mouse
 Vector3D GlowMath::Vector3D::ScreenToWorldCoords(Vector3D coords)
 {
-  float viewWidth = Graphics::Window::GetWidth();
-  float viewHeight = Graphics::Window::GetHeight();
+  int viewWidth = Graphics::Window::GetWidth();
+  int viewHeight = Graphics::Window::GetHeight();
 
   Visual::Camera* camera = EngineInstance::getEngine()->getCamera();
 

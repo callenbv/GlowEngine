@@ -1,8 +1,8 @@
 /*
 /
-// filename: Component.cpp
+// filename: Property.cpp
 // author: Callen Betts
-// brief: implements Component.h
+// brief: Creates a variable property that can be serialized via binary or JSON
 /
 */
 

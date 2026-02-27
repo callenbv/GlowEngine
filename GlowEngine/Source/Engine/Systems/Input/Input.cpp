@@ -25,6 +25,9 @@ Input::InputSystem::InputSystem(std::string systemName)
   pivot = false;
   showCursor = true;
   isSimulation = true;
+  center = { 0, 0 };
+  clientRect = { 0,0,0,0 };
+  pivotPoint = { 0,0 };
 }
 
 bool Input::InputSystem::KeyDown(int key)
@@ -49,9 +52,7 @@ void Input::InputSystem::Clear()
   scrollDelta = 0;
 }
 
-/// <summary>
-/// Flushes all input
-/// </summary>
+// Flushes all input
 void Input::InputSystem::Flush()
 {
   previousKeystates.clear();

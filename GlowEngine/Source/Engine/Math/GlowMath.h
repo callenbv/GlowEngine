@@ -13,7 +13,7 @@ namespace Components
   class BoundingBox;
 }
 
-class ImVec2;
+struct ImVec2;
 
 namespace GlowMath
 {

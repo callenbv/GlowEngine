@@ -65,3 +65,7 @@ using namespace GlowMath;
 
 // graphics
 #include "Engine/Graphics/Color/Color.h"
+
+// macros
+#define NOMINMAX
+

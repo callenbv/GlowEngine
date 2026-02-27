@@ -37,10 +37,7 @@ Components::Component* Components::Component::clone()
   return new Components::Component(*this);
 }
 
-/// <summary>
-/// Save all properties of a component and return its json data
-/// </summary>
-/// <returns></returns>
+// Save all properties of a component and return its json data
 const nlohmann::json Components::Component::Save() const
 {
   nlohmann::json saveData;

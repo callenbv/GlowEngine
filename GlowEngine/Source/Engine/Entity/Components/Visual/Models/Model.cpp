@@ -123,7 +123,7 @@ void Models::Model::updateVertexBuffer()
   {
     D3D11_BUFFER_DESC vertexBufferDesc = {};
     vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-    vertexBufferDesc.ByteWidth = sizeof(Vertex) * modelVertices[name].size();
+    vertexBufferDesc.ByteWidth = (UINT)((sizeof(Vertex)) * modelVertices[name].size());
     vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
     vertexBufferDesc.CPUAccessFlags = 0;
 
@@ -136,7 +136,7 @@ void Models::Model::updateVertexBuffer()
 
   D3D11_BUFFER_DESC shadowBufferDesc = {};
   shadowBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-  shadowBufferDesc.ByteWidth = sizeof(Vertex) * shadowMesh->getVertices().size();
+  shadowBufferDesc.ByteWidth = (UINT)((sizeof(Vertex)) * shadowMesh->getVertices().size());
   shadowBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
   shadowBufferDesc.CPUAccessFlags = 0;
 
@@ -152,7 +152,7 @@ void Models::Model::updateIndexBuffer()
   {
     D3D11_BUFFER_DESC indexBufferDesc = {};
     indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-    indexBufferDesc.ByteWidth = sizeof(unsigned short) * modelIndices[name].size();
+    indexBufferDesc.ByteWidth = (UINT)((sizeof(unsigned short)) * modelIndices[name].size());
     indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
     indexBufferDesc.CPUAccessFlags = 0;
 

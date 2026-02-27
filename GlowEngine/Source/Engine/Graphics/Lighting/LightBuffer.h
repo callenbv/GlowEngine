@@ -54,5 +54,3 @@ namespace Lighting
 }
 
 using namespace Lighting; // ease of use
-
-

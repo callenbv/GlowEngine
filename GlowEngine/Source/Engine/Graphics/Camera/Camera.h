@@ -74,8 +74,8 @@ namespace Visual
     float height; // how tall we are
 
     // window properties
-    float windowWidth;
-    float windowHeight;
+    int windowWidth;
+    int windowHeight;
     float aspectRatio;
     HWND windowHandle;
 

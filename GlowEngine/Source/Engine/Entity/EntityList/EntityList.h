@@ -39,11 +39,22 @@ namespace Entities
 
   public:
 
-    EntityWrapper(Entities::Entity* ent) : entity(ent) {};
+    EntityWrapper(Entities::Entity* ent) :
+        entity(ent),
+        parent(nullptr)
+    {
+
+    }
+
+    EntityWrapper() :
+        parent(nullptr),
+        entity(nullptr)
+    {
+
+    }
 
     Entities::Entity* entity;
     EntityListWrapper* parent;
-
   };
 
 

@@ -48,9 +48,6 @@ bool Parse::ObjectLoader::open(const std::string filePath)
 
 // parse a the file's contents
 // this will iterate over the .obj file and save vertices, indices, and other core data
-//
-// NOTE: this is a completely custom OBJ model loader made to work with triangulated meshes
-//  and face-based lighting to simulate a lower-resolution feel
 void Parse::ObjectLoader::parse()
 {
   std::vector<Vector3D> temp_normals;
@@ -135,13 +132,14 @@ void Parse::ObjectLoader::parse()
 
         // Add the complete vertex to the global model vertices for the current object
         modelVertices[currentObjectName].push_back(completeVertex);
+
         // Add the index of the complete vertex to the global model indices for the current object
-        modelIndices[currentObjectName].push_back(modelVertices[currentObjectName].size() - 1);
+        modelIndices[currentObjectName].push_back(static_cast<short>(modelVertices[currentObjectName].size() - 1));
       }
     }
   }
 
-  // parse the mtl parts of the file
+  // parse the MTL parts of the file
   parseMTL();
 
   // close the file

@@ -40,7 +40,7 @@ Visual::Camera::Camera(Graphics::Renderer* renderEngine)
   window = engine->getWindow();
   windowHeight = window->getHeight();
   windowWidth = window->getWidth();
-  aspectRatio = windowWidth / windowHeight;
+  aspectRatio = static_cast<float>(windowWidth / windowHeight);
   locked = true;
   name = "Camera";
 
@@ -68,6 +68,9 @@ void Visual::Camera::update()
       SceneCameraController();
     }
   }
+
+  // update the aspect ratio every frame
+  aspectRatio = (float)windowWidth / windowHeight;
 
   // make sure we cannot look behind us
   pitch = max(-89.0f, min(89.0f, pitch));
@@ -222,12 +225,12 @@ void Visual::Camera::setTarget(Entities::Entity* newTarget)
   target = newTarget;
 }
 
-void Visual::Camera::SetPosition(Vector3D pos)
+void Visual::Camera::SetPosition(const Vector3D pos)
 {
   position = { pos.x,pos.y,pos.z };
 }
 
-void Visual::Camera::SetRotation(float yaw_, float pitch_)
+void Visual::Camera::SetRotation(const float yaw_, const float pitch_)
 {
   yaw = yaw_;
   pitch = pitch_;

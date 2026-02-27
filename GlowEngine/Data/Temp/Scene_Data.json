@@ -4,7 +4,7 @@
             "Block3": {
                 "Components": {
                     "BoxCollider": {
-                        "Automaticly Resize Hitbox": {
+                        "Automatically Resize Hitbox": {
                             "value": true
                         },
                         "Hitbox Size": {
@@ -60,7 +60,7 @@
             "Block4": {
                 "Components": {
                     "BoxCollider": {
-                        "Automaticly Resize Hitbox": {
+                        "Automatically Resize Hitbox": {
                             "value": true
                         },
                         "Hitbox Size": {
@@ -116,7 +116,7 @@
             "BlockSmall": {
                 "Components": {
                     "BoxCollider": {
-                        "Automaticly Resize Hitbox": {
+                        "Automatically Resize Hitbox": {
                             "value": true
                         },
                         "Hitbox Size": {
@@ -172,7 +172,7 @@
             "Entity10": {
                 "Components": {
                     "BoxCollider": {
-                        "Automaticly Resize Hitbox": {
+                        "Automatically Resize Hitbox": {
                             "value": true
                         },
                         "Hitbox Size": {
@@ -228,7 +228,7 @@
             "Entity11": {
                 "Components": {
                     "BoxCollider": {
-                        "Automaticly Resize Hitbox": {
+                        "Automatically Resize Hitbox": {
                             "value": true
                         },
                         "Hitbox Size": {
@@ -281,66 +281,10 @@
                     }
                 }
             },
-            "Entity15": {
-                "Components": {
-                    "BoxCollider": {
-                        "Automaticly Resize Hitbox": {
-                            "value": true
-                        },
-                        "Hitbox Size": {
-                            "value": {
-                                "x": 30.0,
-                                "y": 30.0,
-                                "z": 30.0
-                            }
-                        },
-                        "Static": {
-                            "value": true
-                        }
-                    },
-                    "Sprite3D": {
-                        "Model": {
-                            "value": "Cube"
-                        },
-                        "Repeat Texture": {
-                            "value": true
-                        },
-                        "Shadow": {
-                            "value": false
-                        },
-                        "Texture": {
-                            "value": ""
-                        }
-                    },
-                    "Transform": {
-                        "Position": {
-                            "value": {
-                                "x": -39.59996795654297,
-                                "y": -3.3999991416931152,
-                                "z": 1.341104507446289e-07
-                            }
-                        },
-                        "Rotation": {
-                            "value": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            }
-                        },
-                        "Scale": {
-                            "value": {
-                                "x": 15.0,
-                                "y": 15.0,
-                                "z": 15.0
-                            }
-                        }
-                    }
-                }
-            },
             "Entity3": {
                 "Components": {
                     "BoxCollider": {
-                        "Automaticly Resize Hitbox": {
+                        "Automatically Resize Hitbox": {
                             "value": true
                         },
                         "Hitbox Size": {
@@ -396,7 +340,7 @@
             "Entity4": {
                 "Components": {
                     "BoxCollider": {
-                        "Automaticly Resize Hitbox": {
+                        "Automatically Resize Hitbox": {
                             "value": true
                         },
                         "Hitbox Size": {
@@ -452,7 +396,7 @@
             "Entity5": {
                 "Components": {
                     "BoxCollider": {
-                        "Automaticly Resize Hitbox": {
+                        "Automatically Resize Hitbox": {
                             "value": true
                         },
                         "Hitbox Size": {
@@ -508,7 +452,7 @@
             "Entity6": {
                 "Components": {
                     "BoxCollider": {
-                        "Automaticly Resize Hitbox": {
+                        "Automatically Resize Hitbox": {
                             "value": true
                         },
                         "Hitbox Size": {
@@ -564,7 +508,7 @@
             "Entity7": {
                 "Components": {
                     "BoxCollider": {
-                        "Automaticly Resize Hitbox": {
+                        "Automatically Resize Hitbox": {
                             "value": true
                         },
                         "Hitbox Size": {
@@ -620,7 +564,7 @@
             "Entity8": {
                 "Components": {
                     "BoxCollider": {
-                        "Automaticly Resize Hitbox": {
+                        "Automatically Resize Hitbox": {
                             "value": true
                         },
                         "Hitbox Size": {
@@ -676,7 +620,7 @@
             "Entity9": {
                 "Components": {
                     "BoxCollider": {
-                        "Automaticly Resize Hitbox": {
+                        "Automatically Resize Hitbox": {
                             "value": true
                         },
                         "Hitbox Size": {
@@ -732,7 +676,7 @@
             "Plane": {
                 "Components": {
                     "BoxCollider": {
-                        "Automaticly Resize Hitbox": {
+                        "Automatically Resize Hitbox": {
                             "value": true
                         },
                         "Hitbox Size": {
@@ -788,14 +732,14 @@
             "Player": {
                 "Components": {
                     "BoxCollider": {
-                        "Automaticly Resize Hitbox": {
+                        "Automatically Resize Hitbox": {
                             "value": true
                         },
                         "Hitbox Size": {
                             "value": {
-                                "x": 5.119999885559082,
-                                "y": 3.877645969390869,
-                                "z": 3.8399999141693115
+                                "x": 5.468751907348633,
+                                "y": 3.9375,
+                                "z": 3.406248092651367
                             }
                         },
                         "Static": {
@@ -837,7 +781,7 @@
                     },
                     "Sprite3D": {
                         "Model": {
-                            "value": "Chest"
+                            "value": "Monkey"
                         },
                         "Repeat Texture": {
                             "value": false

@@ -92,7 +92,7 @@ namespace Graphics
       }
     }
 
-    // rebind the buffer if we need to do it latere
+    // rebind the buffer if we need to do it later
     void reBind(UINT slot, ShaderType type)
     {
       shaderSlot = slot;

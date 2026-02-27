@@ -96,7 +96,7 @@ void Meshes::MeshLibrary::drawBox(Components::BoxCollider* box)
   D3D11_BUFFER_DESC vertexBufferDesc;
   ZeroMemory(&vertexBufferDesc, sizeof(vertexBufferDesc));
   vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-  vertexBufferDesc.ByteWidth = sizeof(Vertex) * vertices.size();
+  vertexBufferDesc.ByteWidth = (UINT)(sizeof(Vertex) * vertices.size());
   vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
   vertexBufferDesc.CPUAccessFlags = 0;
   vertexBufferDesc.MiscFlags = 0;
@@ -119,7 +119,7 @@ void Meshes::MeshLibrary::drawBox(Components::BoxCollider* box)
   D3D11_BUFFER_DESC indexBufferDesc;
   ZeroMemory(&indexBufferDesc, sizeof(indexBufferDesc));
   indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-  indexBufferDesc.ByteWidth = sizeof(unsigned) * indices.size();
+  indexBufferDesc.ByteWidth = (UINT)(sizeof(unsigned) * indices.size());
   indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
   indexBufferDesc.CPUAccessFlags = 0;
   indexBufferDesc.MiscFlags = 0;

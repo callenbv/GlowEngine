@@ -2,7 +2,7 @@
 /
 // filename: Collider.cpp
 // author: Callen Betts
-// brief: implements Collider.h
+// brief: Implements Collider.h
 /
 */
 

@@ -69,7 +69,7 @@ Entities::Entity* Entities::EntityFactory::loadEntity(std::string filePath)
   }
   catch (const std::exception& e)
   {
-    Logger::error("Failed to load entity archetype from " + filePath);
+    Logger::error(e.what());
   }
 
   Logger::write("Created entity archetype from " + filePath);

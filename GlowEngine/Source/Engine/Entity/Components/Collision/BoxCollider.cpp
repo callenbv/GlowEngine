@@ -14,6 +14,12 @@
 
 REGISTER_COMPONENT(BoxCollider);
 
+/// <summary>
+/// Constructor override for extra parameters (static, autoresize)
+/// </summary>
+/// <param name="newScale"></param>
+/// <param name="isStatic"></param>
+/// <param name="autoResize"></param>
 Components::BoxCollider::BoxCollider(Vector3D newScale, bool isStatic, bool autoResize)
 {
   colliderIsStatic = isStatic;
@@ -22,6 +28,10 @@ Components::BoxCollider::BoxCollider(Vector3D newScale, bool isStatic, bool auto
   init();
 }
 
+/// <summary>
+/// Copy constructor
+/// </summary>
+/// <param name="other"></param>
 Components::BoxCollider::BoxCollider(const BoxCollider& other)
 {
   autoSize = other.autoSize;
@@ -31,6 +41,9 @@ Components::BoxCollider::BoxCollider(const BoxCollider& other)
   init();
 }
 
+/// <summary>
+/// Initialize the box collider component
+/// </summary>
 void Components::BoxCollider::init()
 {
   type = ComponentType::Collider;
@@ -39,10 +52,14 @@ void Components::BoxCollider::init()
 
   AddVariable(CreateVariable("Hitbox Size", &scale));
   AddVariable(CreateVariable("Static", &colliderIsStatic));
-  AddVariable(CreateVariable("Automaticly Resize Hitbox", &autoSize));
+  AddVariable(CreateVariable("Automatically Resize Hitbox", &autoSize));
 }
 
-// return whether or not two colliders are colliding
+/// <summary>
+/// Check if we are colliding with another collider
+/// </summary>
+/// <param name="other"></param>
+/// <returns></returns>
 bool Components::BoxCollider::isColliding(const Components::Collider* other)
 {
   Components::Transform* otherTransform = getComponentOfType(Transform, other->parent);
@@ -55,6 +72,11 @@ bool Components::BoxCollider::isColliding(const Components::Collider* other)
   return isAABBColliding(*otherBox);
 }
 
+/// <summary>
+/// Check if we are colliding with another box collider
+/// </summary>
+/// <param name="other"></param>
+/// <returns></returns>
 bool Components::BoxCollider::isAABBColliding(const BoxCollider& other) 
 {
   Components::Transform* otherTransform = getComponentOfType(Transform, other.parent);
@@ -77,6 +99,10 @@ bool Components::BoxCollider::isAABBColliding(const BoxCollider& other)
   return overlapX && overlapY && overlapZ;
 }
 
+/// <summary>
+/// Called when we are overlapping with another collider
+/// </summary>
+/// <param name="other"></param>
 void Components::BoxCollider::onCollide(const Components::Collider* other)
 {
   // Get the physics and transform components
@@ -156,6 +182,10 @@ void Components::BoxCollider::onCollide(const Components::Collider* other)
   physics->setVelocity(velocity);
 }
 
+/// <summary>
+/// Set the hitbox size of the collider
+/// </summary>
+/// <param name="hitboxSize"></param>
 void Components::BoxCollider::setHitboxSize(Vector3D hitboxSize)
 {
   calculateScale();
@@ -164,7 +194,9 @@ void Components::BoxCollider::setHitboxSize(Vector3D hitboxSize)
   dirty = false;
 }
 
-// draw a wireframe of the box based on vertices
+/// <summary>
+/// Draw a debug wireframe of the collision box
+/// </summary>
 void Components::BoxCollider::renderDebug()
 {
   Graphics::Renderer* renderer = EngineInstance::getEngine()->getRenderer();

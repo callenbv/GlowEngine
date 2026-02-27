@@ -14,26 +14,10 @@
 #pragma comment(lib, "d3dcompiler.lib")
 #include "Buffers/ConstantBuffer.h"
 #include "Buffers/Buffer.h"
-
-namespace Visual
-{
-  class Camera;
-}
-
-namespace Graphics
-{
-  class GlowGui;
-  class Window;
-}
-
-namespace Shaders
-{
-  class ShaderManager;
-}
-namespace Lighting
-{
-  class ShadowSystem;
-}
+#include "Camera/Camera.h"
+#include "Lighting/Shadows/ShadowSystem.h"
+#include "Shaders/ShaderManager.h"
+#include "UI/Editor/GlowGui.h"
 
 namespace Graphics
 {

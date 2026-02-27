@@ -249,7 +249,7 @@ void Components::Sprite3D::setTextures(std::string singleTextureName)
 
   // go through each model and set the textures
   int objects = model->getObjects();
-  int textureNum = model->getTextureModelNames().size(); // how many individual textures we have
+  size_t textureNum = model->getTextureModelNames().size(); // how many individual textures we have
 
   // single texture mode is auto-set if objects are only one
   if (singleTexture)
@@ -269,7 +269,7 @@ void Components::Sprite3D::setTextures(std::string singleTextureName)
       std::string modelName = model->getModelNames()[i];
 
       // never over-index the textures
-      int textureIndex = i;
+      size_t textureIndex = i;
       if (textureIndex >= model->getTextureModelNames().size())
       {
         textureIndex = model->getTextureModelNames().size() - 1;

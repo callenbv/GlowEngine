@@ -5,8 +5,6 @@
 // brief: implements BoundingBox.h
 /
 */
-#define NOMINMAX
-
 #include "stdafx.h"
 #include "BoundingBox.h"
 #include <algorithm>

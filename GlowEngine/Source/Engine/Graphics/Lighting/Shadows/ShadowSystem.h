@@ -32,6 +32,7 @@ namespace Lighting
 		ID3D11Buffer* indexBuffer;
 		std::vector<Vertex> vertices;
 		std::vector<int> indices;
+		float angleInRadians = DirectX::XMConvertToRadians(90.0f);
 
 	};
 }

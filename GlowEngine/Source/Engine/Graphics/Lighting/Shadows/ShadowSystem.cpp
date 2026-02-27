@@ -17,14 +17,19 @@ using namespace DirectX;
 
 Lighting::ShadowSystem::ShadowSystem(ID3D11Device* device_, ID3D11DeviceContext* deviceContext) : System("Shadows"),
 	context(deviceContext),
-  device(device_),
-  shadowIndexCount(12)
+    device(device_),
+    buffer(nullptr),
+    shadowIndexCount(12),
+    indexBuffer(nullptr),
+    transformBuffer(nullptr),
+    vertexBuffer(nullptr)
 {
 
 }
 
 
-struct VertexTwo {
+struct VertexTwo 
+{
   DirectX::XMFLOAT3 position;
   DirectX::XMFLOAT2 texcoord;
 };
@@ -49,7 +54,7 @@ void Lighting::ShadowSystem::DrawShadow(const Vector3D& position, Vector3D scale
   D3D11_BUFFER_DESC vertexBufferDesc;
   ZeroMemory(&vertexBufferDesc, sizeof(vertexBufferDesc));
   vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-  vertexBufferDesc.ByteWidth = sizeof(Vertex) * vertices.size();
+  vertexBufferDesc.ByteWidth = (UINT)(sizeof(Vertex) * vertices.size());
   vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
   vertexBufferDesc.CPUAccessFlags = 0;
 
@@ -70,10 +75,9 @@ void Lighting::ShadowSystem::DrawShadow(const Vector3D& position, Vector3D scale
 
   result = device->CreateBuffer(&indexBufferDesc, &indexData, &indexBuffer);
 
-  DirectX::XMMATRIX translation = DirectX::XMMatrixTranslation(position.x, -9.99, position.z);
+  DirectX::XMMATRIX translation = DirectX::XMMatrixTranslation(position.x, -9.99f, position.z);
   DirectX::XMMATRIX scaleMatrix = DirectX::XMMatrixScaling(scale.x, scale.y, scale.z);
   DirectX::XMFLOAT4 rotation = { 0,0,0,0 };
-  float angleInRadians = DirectX::XMConvertToRadians(90.0f); // 45 degrees in radians
   DirectX::XMVECTOR quaternion = DirectX::XMQuaternionRotationRollPitchYaw(angleInRadians, 0.0f, 0.0f);
   DirectX::XMStoreFloat4(&rotation, quaternion);
 
