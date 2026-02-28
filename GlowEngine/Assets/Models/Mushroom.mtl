@@ -10,6 +10,8 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Disp Mushroom.png
+map_Kd Mushroom.png
 
 newmtl GroundMaterial
 Ns 360.000000
@@ -20,6 +22,8 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Disp Mushroom.png
+map_Kd Mushroom.png
 
 newmtl MushroomBorder
 Ns 360.000000
@@ -30,6 +34,8 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Disp Mushroom.png
+map_Kd Mushroom.png
 
 newmtl MushroomInnnerCap
 Ns 360.000000
@@ -40,6 +46,8 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Disp Mushroom.png
+map_Kd Mushroom.png
 
 newmtl StemMaterial
 Ns 360.000000
@@ -50,3 +58,5 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
+map_Disp Mushroom.png
+map_Kd Mushroom.png

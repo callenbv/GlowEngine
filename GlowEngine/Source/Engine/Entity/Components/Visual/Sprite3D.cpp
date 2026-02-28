@@ -39,7 +39,6 @@ Components::Sprite3D::Sprite3D(const Sprite3D& other) : Component(other)
 {
   init();
   setModel(other.model->getName());
-  textures = other.textures;
 }
 
 Components::Sprite3D* Components::Sprite3D::clone()
@@ -85,7 +84,6 @@ void Components::Sprite3D::CustomSave(nlohmann::json saveData) const
 void Components::Sprite3D::init()
 {
   model = new Models::Model("Cube");
-  texture = nullptr;
   type = Components::Component::Sprite3D;
   name = "Sprite3D";
   Engine::GlowEngine* engine = EngineInstance::getEngine();
@@ -94,7 +92,6 @@ void Components::Sprite3D::init()
   AddVariable(CreateVariable("Repeat Texture", &repeatTexture));
   AddVariable(CreateVariable("Shadow", &drawShadow));
   AddVariable(CreateVariable("Model", &(model->getName())));
-  AddVariable(CreateVariable("Texture", &(textureName)));
 }
 
 // render a Sprite3D's model
@@ -107,25 +104,10 @@ void Components::Sprite3D::render()
         return;
     }
 
-    // check if this sprite has a texture
-    if (!textures.empty())
-    {
-        // change the UVs
-        if (repeatTexture)
-        {
-            renderer->SetUVScale(transform->getScale().x, transform->getScale().y);
-        }
-    }
-    else
-    {
-        // unbind the shader resource and reset texture
-        renderer->unBindTexture();
-    }
-
     // update the constant buffer's world matrix
     renderer->updateObjectBufferWorldMatrix(transform->getTransformMatrix());
 
-    // bind the constant buffer and update subresource
+    // bind the constant buffer and update sub resource
     renderer->updateObjectBuffer();
 
     // render our model

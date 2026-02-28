@@ -11,6 +11,7 @@
 #include "Engine/GlowEngine.h"
 #include "Engine/Graphics/Materials/Material.h"
 #include "Engine/Graphics/Materials/MaterialLibrary.h"
+#include "Engine/Graphics/Textures/TextureLibrary.h"
 #include <sstream>
 
 // default constructor for object loading
@@ -143,7 +144,7 @@ void Parse::ObjectLoader::parse()
   }
 
   // parse the MTL parts of the file
-  parseMTL(nullptr);
+  parseMTL(nullptr,nullptr);
 
   // close the file
   close();
@@ -168,17 +169,19 @@ void Parse::ObjectLoader::parseAssimp(Models::Model* modelToLoadInto)
     }
 
     // parse the mtl parts of the file which contain texture names
-    parseMTL(scene->mMaterials,modelToLoadInto);
+    parseMTL(scene,modelToLoadInto);
 
     // Process all the scene's meshes
     for (unsigned int i = 0; i < scene->mNumMeshes; i++) {
         const aiMesh* mesh = scene->mMeshes[i];
     
         // get the mesh name
-        Meshes::Mesh* gMesh = new Meshes::Mesh();
         std::string meshName = mesh->mName.C_Str();
         modelNames.push_back(meshName);
         objects++;
+
+        // create the new mesh
+        Meshes::Mesh* gMesh = new Meshes::Mesh(meshName);
 
         // Process vertices
         for (unsigned int j = 0; j < mesh->mNumVertices; j++) {
@@ -237,7 +240,9 @@ void Parse::ObjectLoader::parseAssimp(Models::Model* modelToLoadInto)
         section.first = 0;
         section.last = indexNum;
         section.materialName = scene->mMaterials[mesh->mMaterialIndex]->GetName().C_Str();
-        gMesh->getMeshSubsections().push_back(section);
+        gMesh->addSection(section);
+        auto* aMat = scene->mMaterials[mesh->mMaterialIndex];
+        Logger::write(meshName + " uses " + std::string(aMat->GetName().C_Str()));
 
         // add the mesh to the model
         modelToLoadInto->addMesh(gMesh);
@@ -248,14 +253,10 @@ void Parse::ObjectLoader::parseAssimp(Models::Model* modelToLoadInto)
 }
 
 // parse MTL data - this contains things like texture names
-void Parse::ObjectLoader::parseMTL(aiMaterial** materials, Models::Model* modelToLoadInto)
+void Parse::ObjectLoader::parseMTL(const aiScene* scene, Models::Model* modelToLoadInto)
 {
-    if (!modelToLoadInto || !materials)
+    if (!modelToLoadInto || !scene)
         return;
-
-    for (const auto mat : materials)
-    {
-    }
 
     std::string filePath = replaceFileExtension(fileName, ".mtl");
     std::ifstream mtl(filePath);
@@ -265,55 +266,52 @@ void Parse::ObjectLoader::parseMTL(aiMaterial** materials, Models::Model* modelT
     // open the mtl file
     if (open)
     {
-        Materials::Material* material = new Materials::Material();
-        std::string line;
-        std::string currentMaterialName;
-
-        // read in each line
-        while (std::getline(mtl, line))
+        for (unsigned i = 0; i < scene->mNumMaterials; ++i)
         {
-            // open the file
-            std::istringstream lineStream(line);
-            std::string prefix;
-            lineStream >> prefix;
+            aiMaterial* sceneMat = scene->mMaterials[i];
 
-            // read in the material name - this is currently unused
-            if (prefix == "newmtl")
+            // get the name of the material
+            std::string currentMaterialName = sceneMat->GetName().C_Str();
+
+            // assign material information before adding to the library
+            // first check if this material exists in the library before creating it
+            if (EngineInstance::getEngine()->getMaterialLibrary()->get(currentMaterialName) == nullptr)
             {
-                lineStream >> currentMaterialName;
-            }
-            else if (prefix == "map_Kd")
-            {
-                // get the texture file path
-                std::string textureFilePath;
-                lineStream >> textureFilePath;
+                Materials::Material* material = new Materials::Material();
 
-                // extract the file name from the full file path
-                size_t lastSlash = textureFilePath.find_last_of("/\\"); // Handles both forward and backslashes
-                std::string textureFileName = textureFilePath.substr(lastSlash + 1);
+                sceneMat->Get(AI_MATKEY_SHININESS, material->shininess);
+                sceneMat->Get(AI_MATKEY_OPACITY, material->dissolve);
 
-                // remove the extension from the texture file name
-                size_t lastDot = textureFileName.rfind('.');
-                if (lastDot != std::string::npos)
+                aiColor3D kd(1, 1, 1), ka(0, 0, 0), ks(0, 0, 0);
+                sceneMat->Get(AI_MATKEY_COLOR_DIFFUSE, kd);
+                sceneMat->Get(AI_MATKEY_COLOR_AMBIENT, ka);
+                sceneMat->Get(AI_MATKEY_COLOR_SPECULAR, ks);
+
+                material->diffuseColor = { kd.r, kd.g, kd.b };
+                material->ambientColor = { ka.r, ka.g, ka.b };
+                material->specularColor = { ks.r, ks.g, ks.b };
+
+                material->setName(currentMaterialName);
+
+                aiString diffuseTexturePath;
+                aiReturn success = sceneMat->GetTexture(aiTextureType_DIFFUSE, 0, &diffuseTexturePath);
+
+                if (success == AI_SUCCESS)
                 {
-                    textureFileName.erase(lastDot);
+                    std::filesystem::path p(diffuseTexturePath.C_Str());
+                    std::string fName = p.stem().string();
+                    material->diffuseTexture = EngineInstance::getEngine()->getTextureLibrary()->get(fName);
                 }
 
-                // save the texture file name without the path and extension
-                textureNames.push_back(textureFileName);
+                // add to the material library
+                EngineInstance::getEngine()->getMaterialLibrary()->add(material);
+                Logger::write("Added new material " + currentMaterialName);
+            }
+            else
+            {
+                Logger::write("Used cached material " + currentMaterialName);
             }
         }
-
-        // assign material information before adding to the library
-        material->specular = scee
-
-        // add to the material library
-        EngineInstance::getEngine()->getMaterialLibrary()->add(material);
-    }
-    else
-    {
-        // failed to open
-        return;
     }
 }
 
@@ -359,7 +357,6 @@ void Parse::ObjectLoader::processAnimation(const aiScene* scene)
   }
 }
 
-
 // delete the parser and its data from memory once we're finished
 void Parse::ObjectLoader::close()
 {
@@ -373,24 +370,6 @@ void Parse::ObjectLoader::close()
 void Parse::ObjectLoader::destroy()
 {
   delete this;
-}
-
-// get the index container
-const std::vector<Index>& Parse::ObjectLoader::getIndices()
-{
-  return indices;
-}
-
-// get the vertex index container
-const std::vector<unsigned short>& Parse::ObjectLoader::getVertexIndices()
-{
-  return vertexIndices;
-}
-
-// get the vertex container
-const std::vector<Vertex>& Parse::ObjectLoader::getVertices()
-{
-  return vertices;
 }
 
 // get the file path of the object file

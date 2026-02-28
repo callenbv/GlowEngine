@@ -20,12 +20,11 @@ void Materials::MaterialLibrary::add(Materials::Material* material)
   {
     // add material if it was valid
     materials[material->getName()] = material;
-    Logger::write("Added new mesh "+ material->getName());
   }
   else
   {
     // invalid mesh
-    Logger::error("Failed to add mesh " + material->getName() + " to library");
+    Logger::error("Failed to add material " + material->getName() + " to library");
   }
 }
 

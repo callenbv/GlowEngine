@@ -48,6 +48,7 @@ Graphics::Renderer::Renderer(HWND handle)
   buffers.push_back(globalLightBuffer = new ConstantBuffer<GlobalLightBuffer>(device, deviceContext, 1, true, ShaderType::Pixel));
   buffers.push_back(colorBuffer = new ConstantBuffer<ColorBuffer>(device, deviceContext, 2, false, ShaderType::Pixel));
   buffers.push_back(outlineBuffer = new ConstantBuffer<ColorBuffer>(device, deviceContext, 3, false, ShaderType::Pixel));
+  buffers.push_back(materialBuffer = new ConstantBuffer<Materials::MaterialBufferCPU>(device, deviceContext, 4, false, ShaderType::Pixel));
   // shadow system
   shadowSystem = new Lighting::ShadowSystem(device,deviceContext);
   //background
@@ -347,6 +348,35 @@ void Graphics::Renderer::createSamplerState()
   sampDesc.MinLOD = 0;
   sampDesc.MaxLOD = D3D11_FLOAT32_MAX;
   device->CreateSamplerState(&sampDesc, &sampler);
+}
+
+// bind a material to the renderer
+void Graphics::Renderer::BindMaterial(Materials::Material* mat)
+{
+    Materials::MaterialBufferCPU mb = {};
+    mb.baseColor = { mat->diffuseColor.r, mat->diffuseColor.g, mat->diffuseColor.b, mat->dissolve };
+    mb.specularColor = { mat->specularColor.r, mat->specularColor.g, mat->specularColor.b };
+    mb.shininess = mat->shininess;
+    mb.useTexture = mat->diffuseSRV ? 1.0f : 0.0f;
+
+    mb.useTexture = (mat->diffuseTexture != nullptr) ? 1.0f : 0.0f;
+
+    float r = mat->diffuseColor.r, g = mat->diffuseColor.g, b = mat->diffuseColor.b;
+    if (mb.useTexture > 0.0f)
+    {
+        r = g = b = 1.0f;
+        mb.baseColor = { r, g, b, mat->dissolve };
+    }
+
+    // update the material buffer
+    materialBuffer->set(mb);
+    materialBuffer->updateAndBind();
+
+    // bind material textures
+    if (mat->diffuseTexture)
+    {
+        deviceContext->PSSetShaderResources(0, 1, mat->diffuseTexture->getTextureView());
+    }
 }
 
 /// <summary>

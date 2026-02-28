@@ -64,8 +64,7 @@ void Textures::TextureLibrary::add(std::string name, Textures::Texture* texture)
 // get a texture from the library
 Textures::Texture* Textures::TextureLibrary::get(std::string name)
 {
-  // if the texture doesn't exist, create it
-  Textures::Texture* texture = textures[name];
-  // return the final texture
-  return texture;
+    Textures::Texture* texture = textures[name];
+    // return the final texture
+    return texture;
 }

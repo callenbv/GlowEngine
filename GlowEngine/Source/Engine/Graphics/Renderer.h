@@ -18,6 +18,7 @@
 #include "Lighting/Shadows/ShadowSystem.h"
 #include "Shaders/ShaderManager.h"
 #include "UI/Editor/GlowGui.h"
+#include "Materials/Material.h"
 
 namespace Graphics
 {
@@ -42,6 +43,9 @@ namespace Graphics
     void createBlendState();
     void createDepthStencil();
     void createSamplerState();
+
+    // materials
+    void BindMaterial(Materials::Material* mat);
 
     // update hotkeys
     void UpdateHotkeys();
@@ -174,6 +178,7 @@ namespace Graphics
     ConstantBuffer<PointLightBuffer>* lightBuffer;
     ConstantBuffer<GlobalLightBuffer>* globalLightBuffer;
     ConstantBuffer<DrawDataBuffer>* drawDataBuffer;
+    ConstantBuffer<Materials::MaterialBufferCPU>* materialBuffer;
 
     float shadowMapWidth = 1024;
     float shadowMapHeight = 1024;

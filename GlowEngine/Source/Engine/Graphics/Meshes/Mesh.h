@@ -22,6 +22,7 @@ namespace Meshes
   {
       unsigned short first;
       unsigned short last;
+
       std::string materialName;
       //Materials::Material* materialIndex = nullptr; // TODO: cached reference to material index
   };
@@ -62,6 +63,7 @@ namespace Meshes
     // get the name
     std::string getName() { return name; }
     std::vector<MeshSubSection>&getMeshSubsections() { return sections; }
+    void addSection(MeshSubSection section) { sections.push_back(section); }
 
   private:
 

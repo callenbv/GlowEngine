@@ -28,7 +28,7 @@ namespace Parse
 
     void parse(); // parse data and save to indices/vertices
     void parseAssimp(Models::Model* model); // parse model and animation data
-    void parseMTL(aiMaterial** materials, Models::Model* modelToLoadInto); // parse MTL data (texture names)
+    void parseMTL(const aiScene* materials, Models::Model* modelToLoadInto); // parse MTL data (texture names)
     void processAnimation(const aiScene* scene);
 
     void close();
@@ -40,19 +40,6 @@ namespace Parse
     const std::vector<unsigned short>& getVertexIndices();
     // get the vertices
     const std::vector<Vertex>& getVertices();
-
-    // return the maps of the data we've stored - this is so we can just query directly
-    // get the model vertex map
-    std::map<std::string, std::vector<Vertex>> getModelVertices() { return modelVertices; }
-    // model indices
-    std::map<std::string, std::vector<unsigned short>> getModelIndices() { return modelIndices; }
-    // get the model names - this is so we can iterate over each name and get them from the map
-    std::vector<std::string> getModelNames() { return modelNames; }
-    // get the texture names
-    std::vector<std::string> getTextureModelNames() { return textureNames; }
-    // get the number of objects
-    int getObjects() { return objects; }
-
     // get the filename
     const std::string getFileName();
 

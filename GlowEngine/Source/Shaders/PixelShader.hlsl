@@ -38,62 +38,59 @@ cbuffer OutlineRegister : register(b3)
     ColorBuffer outlineBuffer;
 };
 
+cbuffer MaterialRegister : register(b4)
+{
+    float4 baseColor;
+    float3 specularColor;
+    float shininess;
+    float useTexture;
+    float3 _padMat;
+};
 
-// Texture sampler
-Texture2D shaderTexture;
-SamplerState SampleType;
-
-// Shadow map texture sampler
-Texture2D shadowTexture;
-SamplerComparisonState shadowSampler;
+SamplerState SampleType : register(s0);
+Texture2D diffuseTexture : register(t0);
 
 // Main entry point
 float4 main(PixelInputType input) : SV_TARGET
 {
-    // Draw the object an entire color
-    if (colorBuffer.objectColor.a != 0)
-    {
-        return colorBuffer.objectColor;
-    }
-    // Outlined object are slightly scaled up
-    if (outlineBuffer.objectColor.a != 0)
-    {
-        return outlineBuffer.objectColor;
-    }
-    
-    // dynamically scale UV coordinates
     input.texcoord *= uvScale;
-  
-    // Get the texture color
-    float4 textureColor = shaderTexture.Sample(SampleType, input.texcoord);
-  
-    // Normalize the normal vector
-    float3 normal = normalize(input.normal);
 
-    // Calculate the diffuse light factor
-    float diffuseFactor = max(dot(normal, -lightDirection), 0.2);
+    float3 N = normalize(input.normal);
+    float3 L = normalize(-lightDirection);
+    float3 V = normalize(cameraPosition - input.worldpos.xyz);
+    float3 H = normalize(L + V);
 
-    // Apply the light color to the diffuse factor
-    float3 diffuseColor = diffuseFactor * lightColor;
-
-    // Combine the lit color with the texture color, if a texture is present
-    float4 litColor = float4(diffuseColor, 1.0);
+    // Sample texture (always sample; if no texture bound you can bind a 1x1 white)
+    float4 tex = diffuseTexture.Sample(SampleType, input.texcoord);
     
-    if (textureColor.a)
-    {
-        litColor *= textureColor;
-    }
+    // alpha clip
+    if (useTexture > 0.5 && tex.a < 0.5)
+        discard;
+    
+    // Base/albedo = (texture or white) * baseColor
+    float4 albedo = lerp(float4(1, 1, 1, 1), tex, useTexture);
+    albedo *= baseColor;
 
-    // Calculate fog factor
-    float fogStart = 125.0f; // Start distance for fog
-    float fogEnd = 250.0f; // End distance for fog
+    // Diffuse + specular
+    float NdotL = max(dot(N, L), 0.0);
+    float3 diffuse = NdotL * lightColor;
+
+    float specPow = clamp(shininess, 1.0, 128.0);
+    float specTerm = pow(max(dot(N, H), 0.0), specPow);
+    float3 specular = specTerm * specularColor * lightColor;
+
+    float3 finalColor = diffuse * albedo.rgb + specular;
+    float4 litColor = float4(finalColor, albedo.a);
+
+    // Apply opacity from baseColor alpha (and texture alpha if you want)
+    litColor.a = albedo.a;
+
+    // Fog
+    float fogStart = 125.0f;
+    float fogEnd = 250.0f;
     float fogDistance = length(input.worldpos.xyz - cameraPosition);
     float fogFactor = saturate((fogEnd - fogDistance) / (fogEnd - fogStart));
-
-    // Fog color
     float3 fogColor = float3(0.5, 0.5, 0.5);
 
-    // Interpolate between the fog color and the lit color
-    float4 finalColorWithFog = lerp(float4(fogColor, 0.0), litColor, fogFactor);
-    return finalColorWithFog;
+    return lerp(float4(fogColor, litColor.a), litColor, fogFactor);
 }

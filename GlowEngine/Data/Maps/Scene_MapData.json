@@ -27,9 +27,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Cube"
                         }
                     },
                     "Transform": {
@@ -83,9 +80,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Cube"
                         }
                     },
                     "Transform": {
@@ -139,9 +133,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Cube"
                         }
                     },
                     "Transform": {
@@ -195,9 +186,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -251,9 +239,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -292,17 +277,14 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": ""
                         }
                     },
                     "Transform": {
                         "Position": {
                             "value": {
-                                "x": -21.800045013427734,
-                                "y": -2.200000047683716,
-                                "z": 52.49977111816406
+                                "x": -38.29998779296875,
+                                "y": -3.200000286102295,
+                                "z": 32.000083923339844
                             }
                         },
                         "Rotation": {
@@ -326,24 +308,21 @@
                 "Components": {
                     "Sprite3D": {
                         "Model": {
-                            "value": "Rock1"
+                            "value": "Soup"
                         },
                         "Repeat Texture": {
                             "value": false
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": ""
                         }
                     },
                     "Transform": {
                         "Position": {
                             "value": {
-                                "x": -25.900060653686523,
-                                "y": -2.200000047683716,
-                                "z": -50.69980239868164
+                                "x": -39.199974060058594,
+                                "y": 4.299997806549072,
+                                "z": -31.70008659362793
                             }
                         },
                         "Rotation": {
@@ -374,9 +353,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": ""
                         }
                     },
                     "Transform": {
@@ -399,6 +375,44 @@
                                 "x": 2.0,
                                 "y": 2.0,
                                 "z": 2.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity18": {
+                "Components": {
+                    "Sprite3D": {
+                        "Model": {
+                            "value": "Mushroom"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        },
+                        "Shadow": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": -79.29936218261719,
+                                "y": -1.0999996662139893,
+                                "z": 51.499786376953125
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 3.0,
+                                "y": 3.0,
+                                "z": 3.0
                             }
                         }
                     }
@@ -430,9 +444,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -486,9 +497,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -542,9 +550,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -598,9 +603,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -654,9 +656,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -710,9 +709,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -766,9 +762,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -822,9 +815,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Plane"
                         }
                     },
                     "Transform": {
@@ -911,9 +901,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Chest"
                         }
                     },
                     "Transform": {

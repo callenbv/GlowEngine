@@ -27,9 +27,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Cube"
                         }
                     },
                     "Transform": {
@@ -83,9 +80,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Cube"
                         }
                     },
                     "Transform": {
@@ -139,9 +133,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Cube"
                         }
                     },
                     "Transform": {
@@ -195,9 +186,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -251,9 +239,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -276,6 +261,158 @@
                                 "x": 8.0,
                                 "y": 8.0,
                                 "z": 8.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity15": {
+                "Components": {
+                    "Sprite3D": {
+                        "Model": {
+                            "value": "Rock1"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        },
+                        "Shadow": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": -38.29998779296875,
+                                "y": -3.200000286102295,
+                                "z": 32.000083923339844
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 3.0,
+                                "y": 3.0,
+                                "z": 3.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity16": {
+                "Components": {
+                    "Sprite3D": {
+                        "Model": {
+                            "value": "Soup"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        },
+                        "Shadow": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": -39.199974060058594,
+                                "y": 4.299997806549072,
+                                "z": -31.70008659362793
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 3.0,
+                                "y": 3.0,
+                                "z": 3.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity17": {
+                "Components": {
+                    "Sprite3D": {
+                        "Model": {
+                            "value": "Rock1"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        },
+                        "Shadow": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": -15.600021362304688,
+                                "y": -2.5,
+                                "z": -62.299625396728516
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 50.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 2.0,
+                                "y": 2.0,
+                                "z": 2.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity18": {
+                "Components": {
+                    "Sprite3D": {
+                        "Model": {
+                            "value": "Mushroom"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        },
+                        "Shadow": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": -79.29936218261719,
+                                "y": -1.0999996662139893,
+                                "z": 51.499786376953125
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 3.0,
+                                "y": 3.0,
+                                "z": 3.0
                             }
                         }
                     }
@@ -307,9 +444,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -363,9 +497,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -419,9 +550,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -475,9 +603,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -531,9 +656,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -587,16 +709,13 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
                         "Position": {
                             "value": {
                                 "x": 31.00008201599121,
-                                "y": -1.8999998569488525,
+                                "y": -3.1999988555908203,
                                 "z": -40.59995651245117
                             }
                         },
@@ -643,9 +762,6 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Tree"
                         }
                     },
                     "Transform": {
@@ -699,16 +815,13 @@
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Plane"
                         }
                     },
                     "Transform": {
                         "Position": {
                             "value": {
                                 "x": 0.0,
-                                "y": -2.000000476837158,
+                                "y": -2.0,
                                 "z": 0.0
                             }
                         },
@@ -721,9 +834,9 @@
                         },
                         "Scale": {
                             "value": {
-                                "x": 250.0,
-                                "y": 250.0,
-                                "z": 250.0
+                                "x": 500.0,
+                                "y": 500.0,
+                                "z": 500.0
                             }
                         }
                     }
@@ -781,38 +894,35 @@
                     },
                     "Sprite3D": {
                         "Model": {
-                            "value": "Monkey"
+                            "value": "Cube"
                         },
                         "Repeat Texture": {
                             "value": false
                         },
                         "Shadow": {
                             "value": false
-                        },
-                        "Texture": {
-                            "value": "Chest"
                         }
                     },
                     "Transform": {
                         "Position": {
                             "value": {
-                                "x": 0.0,
-                                "y": -0.031250301748514175,
+                                "x": 2.0,
+                                "y": 6.068746566772461,
                                 "z": 0.0
                             }
                         },
                         "Rotation": {
                             "value": {
                                 "x": 0.0,
-                                "y": 0.0,
+                                "y": 165.0,
                                 "z": 0.0
                             }
                         },
                         "Scale": {
                             "value": {
-                                "x": 2.0,
-                                "y": 2.0,
-                                "z": 2.0
+                                "x": 0.25,
+                                "y": 0.25,
+                                "z": 0.25
                             }
                         }
                     }

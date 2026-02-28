@@ -194,6 +194,9 @@ void Engine::GlowEngine::createCoreSystems()
 // create systems dependent on core systems
 void Engine::GlowEngine::createLaterSystems()
 {
+    // texture library
+    textureLibrary = new Textures::TextureLibrary();
+    textureLibrary->load();
     // material library
     materialLibrary = new Materials::MaterialLibrary();
     materialLibrary->load();
@@ -203,9 +206,6 @@ void Engine::GlowEngine::createLaterSystems()
     // model library
     modelLibrary = new Models::ModelLibrary();
     modelLibrary->load();
-    // texture library
-    textureLibrary = new Textures::TextureLibrary();
-    textureLibrary->load();
     // entity factory
     factory = new Entities::EntityFactory();
     // scene system

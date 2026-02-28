@@ -102,15 +102,4 @@ void Models::Model::render()
     {
         mesh->render();
     }
-    
-    //if (textures[name])
-    //{
-    //    renderer->getDeviceContext()->PSSetShaderResources(0, 1, textures[name]->getTextureView());
-    //}
-
-    // draw the outline of the model
-    //DrawOutline();
-
-    // unbind the texture, cleanup
-    renderer->unBindTexture();
 }
