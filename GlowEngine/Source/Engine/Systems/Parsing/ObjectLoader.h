@@ -27,8 +27,8 @@ namespace Parse
     bool open(const std::string fileName);
 
     void parse(); // parse data and save to indices/vertices
-    void parseAssimp(); // parse model and animation data
-    void parseMTL(); // parse MTL data (texture names)
+    void parseAssimp(Models::Model* model); // parse model and animation data
+    void parseMTL(aiMaterial** materials, Models::Model* modelToLoadInto); // parse MTL data (texture names)
     void processAnimation(const aiScene* scene);
 
     void close();

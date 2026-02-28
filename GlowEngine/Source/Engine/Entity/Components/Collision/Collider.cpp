@@ -118,76 +118,17 @@ void Components::Collider::calculateScale()
   if (!sprite)
     return;
 
-  const std::map<std::string, std::vector<Vertex>>& modelVertices = sprite->getModel()->getModelVertices();
+  const std::vector<Vertex> vertices = sprite->getModel()->allVertices;
   Components::Transform& transform = *getComponentOfType(Transform, parent);
 
-  // Find the model in the map
-  if (sprite->getModel()->getModelNames().empty())
+  // Calculate the scale of the 
+  if (vertices.empty())
   {
     scale = transform.getScale();
     return;
   }
 
-  std::string modelName = sprite->getModel()->getModelNames()[0];
 
-  auto it = modelVertices.find(modelName);
-
-  const std::vector<Vertex>& vertices = it->second;
-
-  // Initialize min and max with the first vertex
-  Vector3D min = Vector3D(vertices[0].x, vertices[0].y, vertices[0].z);
-  Vector3D max = Vector3D(vertices[0].x, vertices[0].y, vertices[0].z);
-
-  // Loop through all vertices to find the bounding box
-  for (const auto& vertex : vertices) {
-    if (vertex.x < min.x) min.x = vertex.x;
-    if (vertex.y < min.y) min.y = vertex.y;
-    if (vertex.z < min.z) min.z = vertex.z;
-    if (vertex.x > max.x) max.x = vertex.x;
-    if (vertex.y > max.y) max.y = vertex.y;
-    if (vertex.z > max.z) max.z = vertex.z;
-  }
-
-  // Calculate the original scale of the mesh
-  Vector3D originalScale = max - min;
-
-  // Calculate the scaled size based on the transform's scale
-  scale = Vector3D(originalScale.x * transform.getScale().x,
-    originalScale.y * transform.getScale().y,
-    originalScale.z * transform.getScale().z);
-
-  meshScale = originalScale;
-
-  // Calculate the center of the bounding box
-  Vector3D center = (min + max) * 0.5f;
-
-  // Clear the previous vertices
-  this->vertices.clear();
-
-  // Define the vertices of the box collider
-  Vector3D sc = transform.getScale();
-  Vector3D halfScale = sc * 0.5f;
-  Vector3D corners[8] = {
-      center + Vector3D(-halfScale.x, -halfScale.y, -halfScale.z),
-      center + Vector3D(halfScale.x, -halfScale.y, -halfScale.z),
-      center + Vector3D(halfScale.x, halfScale.y, -halfScale.z),
-      center + Vector3D(-halfScale.x, halfScale.y, -halfScale.z),
-      center + Vector3D(-halfScale.x, -halfScale.y, halfScale.z),
-      center + Vector3D(halfScale.x, -halfScale.y, halfScale.z),
-      center + Vector3D(halfScale.x, halfScale.y, halfScale.z),
-      center + Vector3D(-halfScale.x, halfScale.y, halfScale.z)
-  };
-
-  // Add the corners to the vertices vector
-  for (const auto& corner : corners)
-  {
-    Vertex v;
-    v.x = corner.x;
-    v.y = corner.y;
-    v.z = corner.z;
-
-    this->vertices.push_back(v);
-  }
 
   Components::BoundingBox* boundingBox = getComponentOfType(BoundingBox, parent);
   dirty = getComponentOfType(Transform, parent)->isDirty();
@@ -235,11 +176,6 @@ Vector3D Components::Collider::getHitboxSize()
 Vector3D Components::Collider::getMeshScale()
 {
   return meshScale;
-}
-
-const std::vector<Vertex>& Components::Collider::getVertices()
-{
-  return vertices;
 }
 
 const std::set<const Components::Collider*>& Components::Collider::getCollidingObjects()

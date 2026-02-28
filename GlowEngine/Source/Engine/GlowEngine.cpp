@@ -12,6 +12,7 @@
 #include "Engine/Graphics/Renderer.h"
 #include "Engine/Entity/Components/Visual/Models/ModelLibrary.h"
 #include "Engine/Graphics/Textures/TextureLibrary.h"
+#include "Engine/Graphics/Materials/MaterialLibrary.h"
 #include "Game/Scene/SceneSystem.h"
 #include "Engine/Graphics/Window/Window.h"
 #include "Engine/Graphics/Meshes/MeshLibrary.h"
@@ -193,25 +194,28 @@ void Engine::GlowEngine::createCoreSystems()
 // create systems dependent on core systems
 void Engine::GlowEngine::createLaterSystems()
 {
-  // mesh library
-  meshLibrary = new Meshes::MeshLibrary();
-  meshLibrary->load();
-  // model library
-  modelLibrary = new Models::ModelLibrary();
-  modelLibrary->load();
-  // texture library
-  textureLibrary = new Textures::TextureLibrary();
-  textureLibrary->load();
-  // entity factory
-  factory = new Entities::EntityFactory();
-  // scene system
-  sceneSystem = new Scene::SceneSystem("SceneSystem");
-  sceneSystem->init();
-  sceneSystem->SetAsSimulation(true);
-  // initialize later system core pointers
-  initializeSystemCorePointers();
-  // set the first scene
-  sceneSystem->setCurrentScene("ForestScene");
+    // material library
+    materialLibrary = new Materials::MaterialLibrary();
+    materialLibrary->load();
+    // mesh library
+    meshLibrary = new Meshes::MeshLibrary();
+    meshLibrary->load();
+    // model library
+    modelLibrary = new Models::ModelLibrary();
+    modelLibrary->load();
+    // texture library
+    textureLibrary = new Textures::TextureLibrary();
+    textureLibrary->load();
+    // entity factory
+    factory = new Entities::EntityFactory();
+    // scene system
+    sceneSystem = new Scene::SceneSystem("SceneSystem");
+    sceneSystem->init();
+    sceneSystem->SetAsSimulation(true);
+    // initialize later system core pointers
+    initializeSystemCorePointers();
+    // set the first scene
+    sceneSystem->setCurrentScene("ForestScene");
 }
 
 // used to give core system pointers their 

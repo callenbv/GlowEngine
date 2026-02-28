@@ -13,6 +13,7 @@ namespace Graphics { class Renderer; class Window; }
 namespace Visual { class Camera; }
 namespace Models { class ModelLibrary; }
 namespace Textures { class TextureLibrary; }
+namespace Materials { class MaterialLibrary; }
 namespace Scene { class SceneSystem; }
 namespace Meshes { class MeshLibrary; }
 namespace Entities { class EntityFactory; }
@@ -54,6 +55,7 @@ namespace Engine
     Visual::Camera* getCamera() { return camera; }
     Models::ModelLibrary* getModelLibrary() { return modelLibrary; }
     Textures::TextureLibrary* getTextureLibrary() { return textureLibrary; }
+    Materials::MaterialLibrary* getMaterialLibrary() { return materialLibrary; }
     Scene::SceneSystem* getSceneSystem() { return sceneSystem; }
     Graphics::Window* getWindow() { return window; }
     Meshes::MeshLibrary* getMeshLibrary() { return meshLibrary; }
@@ -92,6 +94,7 @@ namespace Engine
     Input::InputSystem* input;
     Models::ModelLibrary* modelLibrary;
     Textures::TextureLibrary* textureLibrary;
+    Materials::MaterialLibrary* materialLibrary;
     Meshes::MeshLibrary* meshLibrary;
     Scene::SceneSystem* sceneSystem;
     Entities::EntityFactory* factory;

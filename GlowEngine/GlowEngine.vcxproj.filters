@@ -138,6 +138,9 @@
     <Filter Include="Source Files\Engine\Graphics\Lighting\Shadows">
       <UniqueIdentifier>{15252d47-8dc0-4d6b-b6e3-e2aedc3fea8b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Graphics\Materials">
+      <UniqueIdentifier>{f24f2a7d-61de-465a-b1e6-e44abe37bffe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Engine\Graphics\Renderer.h">
@@ -360,6 +363,12 @@
     <ClInclude Include="Source\Engine\Graphics\Lighting\Shadows\ShadowSystem.h">
       <Filter>Source Files\Engine\Graphics\Lighting\Shadows</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Engine\Graphics\Materials\Material.h">
+      <Filter>Source Files\Engine\Graphics\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Graphics\Materials\MaterialLibrary.h">
+      <Filter>Source Files\Engine\Graphics\Materials</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Engine\main.cpp">
@@ -568,6 +577,12 @@
     </ClCompile>
     <ClCompile Include="Source\Engine\Graphics\Lighting\Shadows\ShadowSystem.cpp">
       <Filter>Source Files\Engine\Graphics\Lighting\Shadows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\Graphics\Materials\Material.cpp">
+      <Filter>Source Files\Engine\Graphics\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\Graphics\Materials\MaterialLibrary.cpp">
+      <Filter>Source Files\Engine\Graphics\Materials</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

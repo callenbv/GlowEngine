@@ -66,7 +66,6 @@ void Entities::Actor::setModel(std::string name)
 // set the texture
 void Entities::Actor::setTexture(std::string name)
 {
-  sprite->setTextures(name);
 }
 
 void Entities::Actor::setTextureRepeat(bool val)

@@ -26,24 +26,18 @@ void Components::BoundingBox::update()
     return;
 
   // update our bounding box to be the mesh
-  const std::map<std::string, std::vector<Vertex>>& modelVertices = parent->sprite->getModel()->getModelVertices();
   Components::Transform transform = *parent->transform;
 
   // Find the model in the map
-  if (parent->sprite->getModel()->getModelNames().empty())
+  const std::vector<Vertex> vertices = parent->sprite->getModel()->allVertices;
+
+  if (vertices.empty())
     return;
-
-  std::string modelName = parent->sprite->getModel()->getModelNames()[0];
-
-  auto it = modelVertices.find(modelName);
-
-  const std::vector<Vertex>& vertices = it->second;
-  if (vertices.empty()) return;
 
   min = Vector3D(vertices[0].x, vertices[0].y, vertices[0].z);
   max = Vector3D(vertices[0].x, vertices[0].y, vertices[0].z);
 
-    // Loop through all vertices to find the bounding box
+  // Loop through all vertices to find the bounding box
   for (const auto& vertex : vertices) {
     if (vertex.x < min.x) min.x = vertex.x;
     if (vertex.y < min.y) min.y = vertex.y;

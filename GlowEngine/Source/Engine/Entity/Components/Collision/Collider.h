@@ -51,7 +51,6 @@ namespace Components
     Vector3D getHitboxSize();
     Vector3D getMeshScale();
     
-    const std::vector<Vertex>& getVertices();
     const std::set<const Components::Collider*>& getCollidingObjects();
 
     // general setters
@@ -73,8 +72,6 @@ namespace Components
     bool colliderIsStatic = false;
 
     // debug drawing 
-    std::vector<unsigned> indices;
-    std::vector<Vertex> vertices;
     std::set<const Components::Collider*> collidingObjects;
 
     // scale of the collider and original mesh scale

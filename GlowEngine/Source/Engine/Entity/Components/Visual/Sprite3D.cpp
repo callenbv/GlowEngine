@@ -25,7 +25,6 @@ Components::Sprite3D::Sprite3D(const std::string modelName, const std::string te
   renderer(nullptr)
 {
   init();
-  setTextures(textureName);
 }
 
 // base Sprite3D constructor to give pointers to renderer
@@ -68,7 +67,6 @@ void Components::Sprite3D::CustomLoad(const nlohmann::json saveData)
 
       if (texName != "")
       {
-        setTextures(texName);
       }
     }
   }
@@ -102,58 +100,39 @@ void Components::Sprite3D::init()
 // render a Sprite3D's model
 void Components::Sprite3D::render()
 {
-  // set transform constant buffer
-  Components::Transform* transform = getComponentOfType(Transform, parent);
-  if (!transform)
-  {
-    return;
-  }
-
-  // check if this sprite has a texture
-  if (!textures.empty())
-  {
-    // change the UVs
-    if (repeatTexture)
+    // set transform constant buffer
+    Components::Transform* transform = getComponentOfType(Transform, parent);
+    if (!transform)
     {
-      renderer->SetUVScale(transform->getScale().x, transform->getScale().y);
-    }
-  }
-  else
-  {
-    // unbind the shader resource and reset texture
-    renderer->unBindTexture();
-  }
-
-  // update the constant buffer's world matrix
-  renderer->updateObjectBufferWorldMatrix(transform->getTransformMatrix());
-
-  // bind the constant buffer and update subresource
-  renderer->updateObjectBuffer();
-
-  for (int i = 0; i < model->getObjects(); ++i)
-  {
-    // set the texture - each object in a model might have a different texture
-    std::string name = model->getModelNames()[i];
-
-    if (textures[name])
-    {
-      renderer->getDeviceContext()->PSSetShaderResources(0, 1, textures[name]->getTextureView());
+        return;
     }
 
-    // set the object index to be rendered
-    model->setObjectIndex(i);
+    // check if this sprite has a texture
+    if (!textures.empty())
+    {
+        // change the UVs
+        if (repeatTexture)
+        {
+            renderer->SetUVScale(transform->getScale().x, transform->getScale().y);
+        }
+    }
+    else
+    {
+        // unbind the shader resource and reset texture
+        renderer->unBindTexture();
+    }
 
-    // render the model
+    // update the constant buffer's world matrix
+    renderer->updateObjectBufferWorldMatrix(transform->getTransformMatrix());
+
+    // bind the constant buffer and update subresource
+    renderer->updateObjectBuffer();
+
+    // render our model
     model->render();
 
-    DrawOutline();
-  }
-
-  // reset UV scale after drawing
-  renderer->SetUVScale(1, 1);
-
- /* if (drawShadow)
-    renderer->GetShadowSystem()->DrawShadow(transform->getPosition(), transform->getScale());*/
+    // reset UV scale after drawing
+    renderer->SetUVScale(1, 1);
 }
 
 // draw the outline of this sprite 
@@ -218,7 +197,6 @@ void Components::Sprite3D::display()
       if (ImGui::Selectable(name.c_str(), isSelected))
       {
         currentModel = name;
-        setTextures(name);
       }
 
       if (isSelected)
@@ -234,50 +212,6 @@ void Components::Sprite3D::display()
 void Components::Sprite3D::setModel(const std::string modelName)
 {
   model->load(modelName);
-}
-
-// set the model's vertex color
-void Components::Sprite3D::setColor(const float(&color)[4])
-{
-  model->setColor(color);
-}
-
-// set the textures this sprite uses based on the model
-void Components::Sprite3D::setTextures(std::string singleTextureName)
-{
-  Textures::TextureLibrary* texLib = EngineInstance::getEngine()->getTextureLibrary();
-
-  // go through each model and set the textures
-  int objects = model->getObjects();
-  size_t textureNum = model->getTextureModelNames().size(); // how many individual textures we have
-
-  // single texture mode is auto-set if objects are only one
-  if (singleTexture)
-  {
-    // any objects that have less than one model should just set all textures to the given one
-    for (int i = 0; i < objects; ++i)
-    {
-      textures[model->getModelNames()[i]] = new Textures::Texture(singleTextureName);
-    }
-  }
-  else
-  {
-    for (int i = 0; i < objects; ++i)
-    {
-      // BUG: This current implementation implies that the number of textures matches the number of objects
-      // we need to make it so that is not the case
-      std::string modelName = model->getModelNames()[i];
-
-      // never over-index the textures
-      size_t textureIndex = i;
-      if (textureIndex >= model->getTextureModelNames().size())
-      {
-        textureIndex = model->getTextureModelNames().size() - 1;
-      }
-      std::string textureName = model->getTextureModelNames()[textureIndex];
-      textures[modelName] = texLib->get(textureName);
-    }
-  }
 }
 
 void Components::Sprite3D::setTextureRepeat(bool val)

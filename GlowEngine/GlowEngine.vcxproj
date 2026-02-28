@@ -47,6 +47,8 @@
     <ClInclude Include="Source\Engine\Graphics\Color\Color.h" />
     <ClInclude Include="Source\Engine\Graphics\Lighting\LightBuffer.h" />
     <ClInclude Include="Source\Engine\Graphics\Lighting\Shadows\ShadowSystem.h" />
+    <ClInclude Include="Source\Engine\Graphics\Materials\Material.h" />
+    <ClInclude Include="Source\Engine\Graphics\Materials\MaterialLibrary.h" />
     <ClInclude Include="Source\Engine\Graphics\Meshes\Mesh.h" />
     <ClInclude Include="Source\Engine\Graphics\Meshes\MeshLibrary.h" />
     <ClInclude Include="Source\Engine\Graphics\Renderer.h" />
@@ -136,6 +138,8 @@
     <ClCompile Include="Source\Engine\Graphics\Color\Color.cpp" />
     <ClCompile Include="Source\Engine\Graphics\Lighting\LightBuffer.cpp" />
     <ClCompile Include="Source\Engine\Graphics\Lighting\Shadows\ShadowSystem.cpp" />
+    <ClCompile Include="Source\Engine\Graphics\Materials\Material.cpp" />
+    <ClCompile Include="Source\Engine\Graphics\Materials\MaterialLibrary.cpp" />
     <ClCompile Include="Source\Engine\Graphics\Meshes\Mesh.cpp" />
     <ClCompile Include="Source\Engine\Graphics\Meshes\MeshLibrary.cpp" />
     <ClCompile Include="Source\Engine\Graphics\Renderer.cpp">

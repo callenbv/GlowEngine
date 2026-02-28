@@ -48,10 +48,6 @@ namespace Components
 
     // set the sprite's model
     void setModel(const std::string modelName);
-    // model helper functions
-    void setColor(const float(&color)[4]);
-    // set a sprite's texture map to the model's texture names
-    void setTextures(std::string singleTextureName);
     // set a texuture to repeat
     void setTextureRepeat(bool val);
 

@@ -41,8 +41,6 @@ void Models::Model::init()
   device = renderer->getDevice();
   deviceContext = renderer->getDeviceContext();
   dirty = true;
-  shadowBuffer = nullptr;
-  objects = 0;
 }
 
 // parse a .obj file and load its vertex data into the model
@@ -64,139 +62,55 @@ void Models::Model::load(const std::string fileName)
   {
     // parse a 3D model
     Parse::ObjectLoader modelData;
+
     // parse model data
     modelData.open(fileName);
-    modelData.parseAssimp();
-
-    // store the indices and vertices given the map of object data
-    modelVertices = modelData.getModelVertices();
-    modelIndices = modelData.getModelIndices();
-    modelNames = modelData.getModelNames();
-    objects = modelData.getObjects();
-    textureNames = modelData.getTextureModelNames();
-
-    // update the buffers for index and vertex data
-    // this will also create them if they don't exist
-    updateVertexBuffer();
-    updateIndexBuffer();
-  }
-
-}
-
-// get vertices contianer
-const std::vector<GlowMath::Vertex>& Models::Model::getVerticies()
-{
-  return vertices;
-}
-
-const std::vector<GlowMath::Vertex>& Models::Model::getVerticies() const
-{
-  return vertices;
-}
-
-// get indices container
-const std::vector<unsigned short>& Models::Model::getIndices()
-{
-  return indices;
-}
-
-ID3D11Buffer* Models::Model::getVertexBuffer(int index)
-{
-  return vertexBuffers[getModelNames()[index]];
-}
-
-ID3D11Buffer* Models::Model::getIndexBuffer(int index)
-{
-  return indexBuffers[getModelNames()[index]];
-}
-
-void Models::Model::renderShadow()
-{
-
-}
-
-// creates the vertex buffer or updates it 
-void Models::Model::updateVertexBuffer()
-{
-  // update the model buffers
-  for (auto name : modelNames)
-  {
-    D3D11_BUFFER_DESC vertexBufferDesc = {};
-    vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-    vertexBufferDesc.ByteWidth = (UINT)((sizeof(Vertex)) * modelVertices[name].size());
-    vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-    vertexBufferDesc.CPUAccessFlags = 0;
-
-    D3D11_SUBRESOURCE_DATA vertexData = {};
-    vertexData.pSysMem = modelVertices[name].data();
-    renderer->getDevice()->CreateBuffer(&vertexBufferDesc, &vertexData, &vertexBuffers[name]);
-  }
-  // update the shadow buffer
-  Meshes::Mesh* shadowMesh = engine->getMeshLibrary()->get("Quad");
-
-  D3D11_BUFFER_DESC shadowBufferDesc = {};
-  shadowBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-  shadowBufferDesc.ByteWidth = (UINT)((sizeof(Vertex)) * shadowMesh->getVertices().size());
-  shadowBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-  shadowBufferDesc.CPUAccessFlags = 0;
-
-  D3D11_SUBRESOURCE_DATA vertexData = {};
-  vertexData.pSysMem = shadowMesh->getVertices().data();
-  renderer->getDevice()->CreateBuffer(&shadowBufferDesc, &vertexData, &shadowBuffer);
-}
-
-// creates a model's index buffer or updates it 
-void Models::Model::updateIndexBuffer()
-{
-  for (auto name : modelNames)
-  {
-    D3D11_BUFFER_DESC indexBufferDesc = {};
-    indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-    indexBufferDesc.ByteWidth = (UINT)((sizeof(unsigned short)) * modelIndices[name].size());
-    indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
-    indexBufferDesc.CPUAccessFlags = 0;
-
-    D3D11_SUBRESOURCE_DATA indexData = {};
-    indexData.pSysMem = modelIndices[name].data();
-    renderer->getDevice()->CreateBuffer(&indexBufferDesc, &indexData, &indexBuffers[name]);
+    modelData.parseAssimp(this);
+    modelData.close();
   }
 }
 
-// set the texture coordinates to scale with a vector for tiling
-void Models::Model::setUV(Vector3D coords)
+// add a mesht to the mesh list
+void Models::Model::addMesh(Meshes::Mesh* meshToAdd)
 {
-  renderer->SetUVScale(coords.x, coords.y);
+    meshes.push_back(meshToAdd);
 }
 
-// set a model's color
-void Models::Model::setColor(const float (&col)[4])
+// get the meshes from the model
+std::vector<Meshes::Mesh*> Models::Model::getMeshes()
 {
-  // loop through the vertices and set color
-  for (auto name : modelNames)
-  {
-    for (auto& vertex : modelVertices[name])
-    {
-      vertex.r = col[0];
-      vertex.g = col[1];
-      vertex.b = col[2];
-      vertex.a = col[3];
-    }
-  }
-
-  // update the vertex buffer
-  updateVertexBuffer();
+    return meshes;
 }
 
-// render a model
+// set the model's name to lookup in library
+void Models::Model::setName(std::string name_)
+{
+    name = name_;
+}
+
+// get the model's name
+std::string&::Models::Model::getName()
+{
+    return name;
+}
+
+// render a model's meshes
 void Models::Model::render()
 {
-  // set the index and vertex buffers
-  deviceContext->IASetVertexBuffers(0, 1, &vertexBuffers[getModelNames()[objectIndex]], &stride, &offset);
-  deviceContext->IASetIndexBuffer(indexBuffers[getModelNames()[objectIndex]], DXGI_FORMAT_R16_UINT, 0);
+    // render each mesh
+    for (auto& mesh : meshes)
+    {
+        mesh->render();
+    }
+    
+    //if (textures[name])
+    //{
+    //    renderer->getDeviceContext()->PSSetShaderResources(0, 1, textures[name]->getTextureView());
+    //}
 
-  // draw the triangle
-  deviceContext->DrawIndexed((UINT)modelIndices[getModelNames()[objectIndex]].size(), 0, 0);
+    // draw the outline of the model
+    //DrawOutline();
 
-  // unbind the texture
-  renderer->unBindTexture();
+    // unbind the texture, cleanup
+    renderer->unBindTexture();
 }

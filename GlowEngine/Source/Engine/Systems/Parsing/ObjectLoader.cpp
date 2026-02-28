@@ -8,6 +8,9 @@
 
 #include "stdafx.h"
 #include "ObjectLoader.h"
+#include "Engine/GlowEngine.h"
+#include "Engine/Graphics/Materials/Material.h"
+#include "Engine/Graphics/Materials/MaterialLibrary.h"
 #include <sstream>
 
 // default constructor for object loading
@@ -46,8 +49,8 @@ bool Parse::ObjectLoader::open(const std::string filePath)
   return opened;
 }
 
-// parse a the file's contents
-// this will iterate over the .obj file and save vertices, indices, and other core data
+// parse a the file's contents (custom OBJ loader)
+// this will iterate over the .obj file and build the meshes
 void Parse::ObjectLoader::parse()
 {
   std::vector<Vector3D> temp_normals;
@@ -140,152 +143,178 @@ void Parse::ObjectLoader::parse()
   }
 
   // parse the MTL parts of the file
-  parseMTL();
+  parseMTL(nullptr);
 
   // close the file
   close();
 }
 
 // parse a model using assimp loader
-void Parse::ObjectLoader::parseAssimp()
+void Parse::ObjectLoader::parseAssimp(Models::Model* modelToLoadInto)
 {
-  Assimp::Importer importer;
+    if (!modelToLoadInto)
+        return;
 
-  // Read the OBJ file, and apply post-processing steps for triangulation and generating normals
-  const aiScene* scene = importer.ReadFile(fileName, aiProcess_Triangulate | aiProcess_GenNormals);
+    Assimp::Importer importer;
 
-  // Check for errors
-  if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) 
-  {
-    Logger::error("Failed to load model " + fileName);
-    return;
-  }
+    // Read the OBJ file, and apply post-processing steps for triangulation and generating normals
+    const aiScene* scene = importer.ReadFile(fileName, aiProcess_Triangulate | aiProcess_GenNormals);
 
-  // Process all the scene's meshes
-  for (unsigned int i = 0; i < scene->mNumMeshes; i++) {
-    const aiMesh* mesh = scene->mMeshes[i];
+    // Check for errors
+    if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) 
+    {
+        Logger::error("Failed to load model " + fileName);
+        return;
+    }
+
+    // parse the mtl parts of the file which contain texture names
+    parseMTL(scene->mMaterials,modelToLoadInto);
+
+    // Process all the scene's meshes
+    for (unsigned int i = 0; i < scene->mNumMeshes; i++) {
+        const aiMesh* mesh = scene->mMeshes[i];
     
-    // get the mesh name
-    std::string meshName = mesh->mName.C_Str();
-    modelNames.push_back(meshName);
-    objects++;
+        // get the mesh name
+        Meshes::Mesh* gMesh = new Meshes::Mesh();
+        std::string meshName = mesh->mName.C_Str();
+        modelNames.push_back(meshName);
+        objects++;
 
-    // Process vertices
-    for (unsigned int j = 0; j < mesh->mNumVertices; j++) {
+        // Process vertices
+        for (unsigned int j = 0; j < mesh->mNumVertices; j++) {
       
-      // create the vertex
-      Vertex vertex;
+            // create the vertex
+            Vertex vertex;
 
-      // position
-      aiVector3D pos = mesh->mVertices[j];
-      vertex.x = pos.x;
-      vertex.y = pos.y;
-      vertex.z = pos.z;
+            // position
+            aiVector3D pos = mesh->mVertices[j];
+            vertex.x = pos.x;
+            vertex.y = pos.y;
+            vertex.z = pos.z;
 
-      // normals
-      if (mesh->HasNormals()) {
-        aiVector3D normal = mesh->mNormals[j];
-        vertex.nx = normal.x;
-        vertex.ny = normal.y;
-        vertex.nz = normal.z;
-      }
+            // normals
+            if (mesh->HasNormals()) {
+            aiVector3D normal = mesh->mNormals[j];
+                vertex.nx = normal.x;
+                vertex.ny = normal.y;
+                vertex.nz = normal.z;
+            }
 
-      // Texture coordinates
-      if (mesh->mTextureCoords[0]) {
-        aiVector3D uv = mesh->mTextureCoords[0][j];
-        vertex.tx = uv.x;
-        vertex.ty = uv.y;
-      }
+            // Texture coordinates
+            if (mesh->mTextureCoords[0]) {
+                aiVector3D uv = mesh->mTextureCoords[0][j];
+                vertex.tx = uv.x;
+                vertex.ty = uv.y;
+            }
 
-      // base color
-      vertex.r = 1;
-      vertex.g = 1;
-      vertex.b = 1;
-      vertex.a = 1;
+            // base color
+            vertex.r = 1;
+            vertex.g = 1;
+            vertex.b = 1;
+            vertex.a = 1;
 
-      // add the vertex
-      modelVertices[meshName].push_back(vertex);
+            // add the vertex
+            gMesh->addVertex(vertex);
+            modelToLoadInto->allVertices.push_back(vertex);
+        }
+
+        // add the indices
+        unsigned short indexNum = 0;
+
+        for (unsigned int j = 0; j < mesh->mNumFaces; j++) {
+            aiFace face = mesh->mFaces[j];
+            // loop through the actual indices within each face
+            for (unsigned int k = 0; k < face.mNumIndices; k++) {
+                // add the indices to the model
+                unsigned short index = face.mIndices[k];
+                gMesh->addIndex(index);
+                indexNum++;
+            }
+        }
+
+        // parse the material subsections using index data
+        Meshes::MeshSubSection section;
+        section.first = 0;
+        section.last = indexNum;
+        section.materialName = scene->mMaterials[mesh->mMaterialIndex]->GetName().C_Str();
+        gMesh->getMeshSubsections().push_back(section);
+
+        // add the mesh to the model
+        modelToLoadInto->addMesh(gMesh);
     }
 
-    for (unsigned int j = 0; j < mesh->mNumFaces; j++) {
-      aiFace face = mesh->mFaces[j];
-      // loop through the actual indices within each face
-      for (unsigned int k = 0; k < face.mNumIndices; k++) {
-        // add the indices to the model
-        unsigned short index = face.mIndices[k];
-        modelIndices[meshName].push_back(index);
-      }
-    }
-
-    // Process material properties if necessary
-    if (mesh->mMaterialIndex >= 0) {
-      // currently we have no materials
-    }
-  }
-
-  // parse the mtl parts of the file which contain texture names
-  parseMTL();
-
-  // TO-DO: Parse FBX animation data
-  processAnimation(scene);
-
-  // close the file
-  close();
+    // TO-DO: Parse FBX animation data
+    // processAnimation(scene);
 }
 
 // parse MTL data - this contains things like texture names
-void Parse::ObjectLoader::parseMTL()
+void Parse::ObjectLoader::parseMTL(aiMaterial** materials, Models::Model* modelToLoadInto)
 {
-  std::string filePath = replaceFileExtension(fileName, ".mtl");
-  std::ifstream mtl(filePath);
+    if (!modelToLoadInto || !materials)
+        return;
 
-  bool open = mtl.is_open();
-  // open the mtl file
-  if (open)
-  {
-    std::string line;
-    std::string currentMaterialName;
-
-    // read in each line
-    while (std::getline(mtl, line))
+    for (const auto mat : materials)
     {
-      // open the file
-      std::istringstream lineStream(line);
-      std::string prefix;
-      lineStream >> prefix;
+    }
 
-      // read in the material name - this is currently unused
-      if (prefix == "newmtl")
-      {
-        lineStream >> currentMaterialName;
-      }
-      else if (prefix == "map_Kd")
-      {
-        // get the texture file path
-        std::string textureFilePath;
-        lineStream >> textureFilePath;
+    std::string filePath = replaceFileExtension(fileName, ".mtl");
+    std::ifstream mtl(filePath);
 
-        // extract the file name from the full file path
-        size_t lastSlash = textureFilePath.find_last_of("/\\"); // Handles both forward and backslashes
-        std::string textureFileName = textureFilePath.substr(lastSlash + 1);
+    bool open = mtl.is_open();
 
-        // remove the extension from the texture file name
-        size_t lastDot = textureFileName.rfind('.');
-        if (lastDot != std::string::npos)
+    // open the mtl file
+    if (open)
+    {
+        Materials::Material* material = new Materials::Material();
+        std::string line;
+        std::string currentMaterialName;
+
+        // read in each line
+        while (std::getline(mtl, line))
         {
-          textureFileName.erase(lastDot);
+            // open the file
+            std::istringstream lineStream(line);
+            std::string prefix;
+            lineStream >> prefix;
+
+            // read in the material name - this is currently unused
+            if (prefix == "newmtl")
+            {
+                lineStream >> currentMaterialName;
+            }
+            else if (prefix == "map_Kd")
+            {
+                // get the texture file path
+                std::string textureFilePath;
+                lineStream >> textureFilePath;
+
+                // extract the file name from the full file path
+                size_t lastSlash = textureFilePath.find_last_of("/\\"); // Handles both forward and backslashes
+                std::string textureFileName = textureFilePath.substr(lastSlash + 1);
+
+                // remove the extension from the texture file name
+                size_t lastDot = textureFileName.rfind('.');
+                if (lastDot != std::string::npos)
+                {
+                    textureFileName.erase(lastDot);
+                }
+
+                // save the texture file name without the path and extension
+                textureNames.push_back(textureFileName);
+            }
         }
 
-        // save the texture file name without the path and extension
-        textureNames.push_back(textureFileName);
-      }
+        // assign material information before adding to the library
+        material->specular = scee
+
+        // add to the material library
+        EngineInstance::getEngine()->getMaterialLibrary()->add(material);
     }
-  }
-  else
-  {
-    // failed to open
-    return;
-  }
+    else
+    {
+        // failed to open
+        return;
+    }
 }
 
 // process the animation data from the scene
