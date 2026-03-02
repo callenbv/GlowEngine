@@ -15,6 +15,8 @@
 #include "Engine/Graphics/Textures/TextureLibrary.h"
 #include "Engine/Graphics/Meshes/MeshLibrary.h"
 #include "Engine/Graphics/Meshes/Mesh.h"
+#include "Engine/Graphics/Materials/Material.h"
+#include "Engine/Graphics/Materials/MaterialLibrary.h"
 
 // construct a new base model
 Models::Model::Model()
@@ -92,6 +94,59 @@ void Models::Model::setName(std::string name_)
 std::string&::Models::Model::getName()
 {
     return name;
+}
+
+// assign a material to every mesh in this model
+void Models::Model::assignMaterial(Materials::Material* mat)
+{
+    if (!mat)
+        return;
+
+    // assign the material to all mesh subsections
+    for (const auto& mesh : meshes)
+    {
+        for (auto& section : mesh->getMeshSubsections())
+        {
+            section.materialName = mat->getName();
+        }
+    }
+}
+
+// assign a material from a string name
+void Models::Model::assignMaterialFromName(std::string name)
+{
+    Materials::Material* mat = EngineInstance::getEngine()->getMaterialLibrary()->get(name);
+    assignMaterial(mat);
+}
+
+// assign a material to a specific mesh subsection
+void Models::Model::assignMaterialToSubSection(int mi, int si, std::string name)
+{
+    if (mi < 0 || si < 0)
+        return;
+
+    if (mi >= static_cast<int>(meshes.size()))
+        return;
+
+    auto* mesh = meshes[mi];
+    if (!mesh)
+        return;
+
+    // IMPORTANT: getMeshSubsections() must return a REFERENCE for this to persist.
+    // i.e. std::vector<MeshSubsection>& getMeshSubsections();
+    auto& sections = mesh->getMeshSubsections();
+
+    if (si >= static_cast<int>(sections.size()))
+        return;
+
+    // Only assign if the material actually exists
+    Materials::Material* mat =
+        EngineInstance::getEngine()->getMaterialLibrary()->get(name);
+
+    if (!mat)
+        return;
+
+    sections[si].materialName = mat->getName();
 }
 
 // render a model's meshes

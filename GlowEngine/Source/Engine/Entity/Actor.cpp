@@ -68,11 +68,6 @@ void Entities::Actor::setTexture(std::string name)
 {
 }
 
-void Entities::Actor::setTextureRepeat(bool val)
-{
-  sprite->setTextureRepeat(val);
-}
-
 // ** Lighting ** //
 // initialize the point light and set it as active
 void Entities::Actor::setAsPointLight(bool val)

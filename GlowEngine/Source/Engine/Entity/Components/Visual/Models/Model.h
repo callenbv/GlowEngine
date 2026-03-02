@@ -35,6 +35,11 @@ namespace Graphics
   class Renderer;
 }
 
+namespace Materials
+{
+    class Material;
+}
+
 namespace Models
 {
 
@@ -61,6 +66,10 @@ namespace Models
 
     // is dirty
     bool isDirty() { return dirty; }
+    // assign a material to this model
+    void assignMaterial(Materials::Material* mat);
+    void assignMaterialFromName(std::string name);
+    void assignMaterialToSubSection(int mi, int si, std::string name);
 
     // render a model
     void render();

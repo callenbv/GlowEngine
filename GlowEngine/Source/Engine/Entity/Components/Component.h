@@ -50,7 +50,7 @@ namespace Components
       virtual void load(const nlohmann::json&) {};
       virtual void display() {};
       virtual void CustomLoad(const nlohmann::json saveData) {};
-      virtual void CustomSave(nlohmann::json data) const {};
+      virtual void CustomSave(nlohmann::json& data) const {};
 
       virtual Components::Component* clone();
 

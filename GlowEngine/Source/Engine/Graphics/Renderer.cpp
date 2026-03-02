@@ -353,6 +353,7 @@ void Graphics::Renderer::createSamplerState()
 // bind a material to the renderer
 void Graphics::Renderer::BindMaterial(Materials::Material* mat)
 {
+    // assign material values to the buffer
     Materials::MaterialBufferCPU mb = {};
     mb.baseColor = { mat->diffuseColor.r, mat->diffuseColor.g, mat->diffuseColor.b, mat->dissolve };
     mb.specularColor = { mat->specularColor.r, mat->specularColor.g, mat->specularColor.b };
@@ -366,6 +367,26 @@ void Graphics::Renderer::BindMaterial(Materials::Material* mat)
     {
         r = g = b = 1.0f;
         mb.baseColor = { r, g, b, mat->dissolve };
+    }
+
+    // set texture UV coordinates from transform's scale matrix
+    if (mat->repeatTexture)
+    {
+        auto& W = objectBuffer->get().world;
+
+        DirectX::XMVECTOR right = W.r[0];
+        DirectX::XMVECTOR up = W.r[1];
+        DirectX::XMVECTOR fwd = W.r[2];
+
+        float sx = DirectX::XMVectorGetX(DirectX::XMVector3Length(right));
+        float sy = DirectX::XMVectorGetX(DirectX::XMVector3Length(up));
+        float sz = DirectX::XMVectorGetX(DirectX::XMVector3Length(fwd));
+
+        mat->sx = sx;
+        mat->sy = sy;
+        mat->sz = sz;
+
+        SetUVScale(mat->sx, mat->sy);
     }
 
     // update the material buffer

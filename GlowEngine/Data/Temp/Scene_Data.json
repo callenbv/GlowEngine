@@ -19,14 +19,18 @@
                         }
                     },
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Leaves",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
                             "value": "Cube"
                         },
                         "Repeat Texture": {
                             "value": true
-                        },
-                        "Shadow": {
-                            "value": false
                         }
                     },
                     "Transform": {
@@ -72,14 +76,18 @@
                         }
                     },
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Leaves",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
                             "value": "Cube"
                         },
                         "Repeat Texture": {
                             "value": true
-                        },
-                        "Shadow": {
-                            "value": false
                         }
                     },
                     "Transform": {
@@ -125,14 +133,18 @@
                         }
                     },
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Leaves",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
                             "value": "Cube"
                         },
                         "Repeat Texture": {
                             "value": true
-                        },
-                        "Shadow": {
-                            "value": false
                         }
                     },
                     "Transform": {
@@ -178,13 +190,22 @@
                         }
                     },
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Trank_bark",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "polySurface1SG1",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
                             "value": "Tree"
                         },
                         "Repeat Texture": {
-                            "value": false
-                        },
-                        "Shadow": {
                             "value": false
                         }
                     },
@@ -231,13 +252,22 @@
                         }
                     },
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Trank_bark",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "polySurface1SG1",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
                             "value": "Tree"
                         },
                         "Repeat Texture": {
-                            "value": false
-                        },
-                        "Shadow": {
                             "value": false
                         }
                     },
@@ -269,13 +299,22 @@
             "Entity15": {
                 "Components": {
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "RockMaterial.001",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "RockMaterial",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
                             "value": "Rock1"
                         },
                         "Repeat Texture": {
-                            "value": false
-                        },
-                        "Shadow": {
                             "value": false
                         }
                     },
@@ -307,13 +346,117 @@
             "Entity16": {
                 "Components": {
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Yoke",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "Yoke",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 2,
+                                "name": "Yoke",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 3,
+                                "name": "Yoke",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 4,
+                                "name": "EggBody",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 5,
+                                "name": "Yoke",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 6,
+                                "name": "EggBody",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 7,
+                                "name": "Yoke",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 8,
+                                "name": "Potato",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 9,
+                                "name": "Potato",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 10,
+                                "name": "Potato",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 11,
+                                "name": "Potato",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 12,
+                                "name": "Potato",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 13,
+                                "name": "Potato",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 14,
+                                "name": "Potato",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 15,
+                                "name": "Green_Onion",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 16,
+                                "name": "Green_Onion",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 17,
+                                "name": "Green_Onion",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 18,
+                                "name": "Bowl",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 19,
+                                "name": "Soup",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 20,
+                                "name": "Stepping_Stool",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
                             "value": "Soup"
                         },
                         "Repeat Texture": {
-                            "value": false
-                        },
-                        "Shadow": {
                             "value": false
                         }
                     },
@@ -345,13 +488,22 @@
             "Entity17": {
                 "Components": {
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "RockMaterial.001",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "RockMaterial",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
                             "value": "Rock1"
                         },
                         "Repeat Texture": {
-                            "value": false
-                        },
-                        "Shadow": {
                             "value": false
                         }
                     },
@@ -380,44 +532,6 @@
                     }
                 }
             },
-            "Entity18": {
-                "Components": {
-                    "Sprite3D": {
-                        "Model": {
-                            "value": "Mushroom"
-                        },
-                        "Repeat Texture": {
-                            "value": false
-                        },
-                        "Shadow": {
-                            "value": false
-                        }
-                    },
-                    "Transform": {
-                        "Position": {
-                            "value": {
-                                "x": -79.29936218261719,
-                                "y": -1.0999996662139893,
-                                "z": 51.499786376953125
-                            }
-                        },
-                        "Rotation": {
-                            "value": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            }
-                        },
-                        "Scale": {
-                            "value": {
-                                "x": 3.0,
-                                "y": 3.0,
-                                "z": 3.0
-                            }
-                        }
-                    }
-                }
-            },
             "Entity3": {
                 "Components": {
                     "BoxCollider": {
@@ -436,13 +550,22 @@
                         }
                     },
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Trank_bark",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "polySurface1SG1",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
                             "value": "Tree"
                         },
                         "Repeat Texture": {
-                            "value": false
-                        },
-                        "Shadow": {
                             "value": false
                         }
                     },
@@ -489,13 +612,22 @@
                         }
                     },
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Trank_bark",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "polySurface1SG1",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
                             "value": "Tree"
                         },
                         "Repeat Texture": {
-                            "value": false
-                        },
-                        "Shadow": {
                             "value": false
                         }
                     },
@@ -542,13 +674,22 @@
                         }
                     },
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Trank_bark",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "polySurface1SG1",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
                             "value": "Tree"
                         },
                         "Repeat Texture": {
-                            "value": false
-                        },
-                        "Shadow": {
                             "value": false
                         }
                     },
@@ -595,13 +736,22 @@
                         }
                     },
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Trank_bark",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "polySurface1SG1",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
                             "value": "Tree"
                         },
                         "Repeat Texture": {
-                            "value": false
-                        },
-                        "Shadow": {
                             "value": false
                         }
                     },
@@ -648,13 +798,17 @@
                         }
                     },
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Leaves",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
                             "value": "Tree1"
                         },
                         "Repeat Texture": {
-                            "value": false
-                        },
-                        "Shadow": {
                             "value": false
                         }
                     },
@@ -701,13 +855,22 @@
                         }
                     },
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Trank_bark",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "polySurface1SG1",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
                             "value": "Tree"
                         },
                         "Repeat Texture": {
-                            "value": false
-                        },
-                        "Shadow": {
                             "value": false
                         }
                     },
@@ -754,13 +917,22 @@
                         }
                     },
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Trank_bark",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "polySurface1SG1",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
                             "value": "Tree"
                         },
                         "Repeat Texture": {
-                            "value": false
-                        },
-                        "Shadow": {
                             "value": false
                         }
                     },
@@ -807,14 +979,18 @@
                         }
                     },
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Material.003",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
                             "value": "Plane"
                         },
                         "Repeat Texture": {
                             "value": true
-                        },
-                        "Shadow": {
-                            "value": false
                         }
                     },
                     "Transform": {
@@ -893,36 +1069,40 @@
                         }
                     },
                     "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "RockMaterial.001",
+                                "section": 0
+                            }
+                        ],
                         "Model": {
-                            "value": "Cube"
+                            "value": "Monkey"
                         },
                         "Repeat Texture": {
-                            "value": false
-                        },
-                        "Shadow": {
                             "value": false
                         }
                     },
                     "Transform": {
                         "Position": {
                             "value": {
-                                "x": 2.0,
-                                "y": 6.068746566772461,
+                                "x": 0.0,
+                                "y": 6.86874532699585,
                                 "z": 0.0
                             }
                         },
                         "Rotation": {
                             "value": {
                                 "x": 0.0,
-                                "y": 165.0,
+                                "y": 0.0,
                                 "z": 0.0
                             }
                         },
                         "Scale": {
                             "value": {
-                                "x": 0.25,
-                                "y": 0.25,
-                                "z": 0.25
+                                "x": 2.0,
+                                "y": 2.0,
+                                "z": 2.0
                             }
                         }
                     }

@@ -26,6 +26,9 @@ namespace Materials
     // load all of our preset material
     void load();
 
+    // get the materials from the library
+    std::map<std::string, Materials::Material*>& getMaterials() { return materials; }
+
   private:
 
     std::map<std::string, Materials::Material*> materials;

@@ -7,6 +7,7 @@
 */
 
 #pragma once
+#include "Engine/Graphics/Textures/Texture.h"
 
 namespace Graphics
 {
@@ -32,6 +33,11 @@ namespace Materials
         
         std::string getName() { return name; }
         void setName(std::string name_) { name = name_; }
+
+        bool repeatTexture = false;
+        float sx = 1.f;
+        float sy = 1.f;
+        float sz = 1.f;
 
         float shininess = 0.f;
         float specular = 0.f;

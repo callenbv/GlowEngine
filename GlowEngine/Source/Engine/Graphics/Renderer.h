@@ -157,6 +157,7 @@ namespace Graphics
 
     // sampler
     ID3D11SamplerState* sampler;
+    ID3D11SamplerState* wrapSampler;
     ID3D11ShaderResourceView* shadowShaderView;
 
     // blend state

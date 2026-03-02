@@ -35,7 +35,7 @@ namespace Components
     Sprite3D* clone();
     virtual void load(const nlohmann::json&);
     virtual void CustomLoad(const nlohmann::json);
-    virtual void CustomSave(nlohmann::json) const;
+    virtual void CustomSave(nlohmann::json&) const;
 
     // initialize
     void init();
@@ -45,11 +45,11 @@ namespace Components
     void DrawOutline();
     // display model to change
     void display();
+    // set the texture repeat
+    void setTextureRepeat(bool val);
 
     // set the sprite's model
     void setModel(const std::string modelName);
-    // set a texuture to repeat
-    void setTextureRepeat(bool val);
 
     // get the model
     Models::Model* getModel();
@@ -59,17 +59,11 @@ namespace Components
     // get alpha
     float getAlpha();
 
-    // single texture mode
-    void setSingleTextureMode(bool val) { singleTexture = val; }
-    bool isSingleTextureMode() { return singleTexture; }
 
   private:
 
     float alpha;
-
     bool repeatTexture = false;
-    bool singleTexture = true;
-    bool drawShadow = false;
 
     Models::Model* model;
     Graphics::Renderer* renderer;

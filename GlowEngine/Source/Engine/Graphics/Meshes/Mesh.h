@@ -20,6 +20,9 @@ namespace Meshes
   // mesh subsections define which index ranges we apply materials to
   struct MeshSubSection
   {
+
+  public:
+
       unsigned short first;
       unsigned short last;
 

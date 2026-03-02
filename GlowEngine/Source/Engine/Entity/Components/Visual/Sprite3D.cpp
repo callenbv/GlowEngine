@@ -16,6 +16,8 @@
 #include "Engine/EngineInstance.h"
 #include "Engine/Graphics/Lighting/Shadows/ShadowSystem.h"
 #include "Engine/Entity/Components/Visual/Models/ModelLibrary.h"
+#include "Engine/Graphics/Materials/Material.h"
+#include "Engine/Graphics/Materials/MaterialLibrary.h"
 
 REGISTER_COMPONENT(Sprite3D);
 
@@ -57,16 +59,23 @@ void Components::Sprite3D::CustomLoad(const nlohmann::json saveData)
 {
   if (model)
   {
+    // Assign the model
     if (saveData.contains("Model")) setModel(saveData["Model"]["value"]);
-    
-    // Add textures
-    if (saveData.contains("Texture"))
-    {
-      std::string texName = saveData["Texture"]["value"];
 
-      if (texName != "")
-      {
-      }
+    // Assign material
+    if (saveData.contains("Materials") && saveData["Materials"].is_array())
+    {
+        for (const auto& entry : saveData["Materials"])
+        {
+            int mi = entry.value("mesh", -1);
+            int si = entry.value("section", -1);
+            std::string name = entry.value("name", "");
+
+            if (mi < 0 || si < 0 || name.empty())
+                continue;
+
+            model->assignMaterialToSubSection(mi, si, name); // you implement this
+        }
     }
   }
 }
@@ -75,9 +84,25 @@ void Components::Sprite3D::CustomLoad(const nlohmann::json saveData)
 /// Save things like textures and meshes
 /// </summary>
 /// <param name=""> The json object </param>
-void Components::Sprite3D::CustomSave(nlohmann::json saveData) const
+void Components::Sprite3D::CustomSave(nlohmann::json& saveData) const
 {
+    saveData["Materials"] = nlohmann::json::array();
 
+    int mi = 0;
+    for (const auto& mesh : model->getMeshes())
+    {
+        int si = 0;
+        for (const auto& section : mesh->getMeshSubsections())
+        {
+            saveData["Materials"].push_back({
+                {"mesh", mi},
+                {"section", si},
+                {"name", section.materialName}
+                });
+            si++;
+        }
+        mi++;
+    }
 }
 
 // initialize the Sprite3D component
@@ -89,9 +114,8 @@ void Components::Sprite3D::init()
   Engine::GlowEngine* engine = EngineInstance::getEngine();
   renderer = engine->getRenderer();
 
-  AddVariable(CreateVariable("Repeat Texture", &repeatTexture));
-  AddVariable(CreateVariable("Shadow", &drawShadow));
   AddVariable(CreateVariable("Model", &(model->getName())));
+  AddVariable(CreateVariable("Repeat Texture", &repeatTexture));
 }
 
 // render a Sprite3D's model
@@ -109,6 +133,15 @@ void Components::Sprite3D::render()
 
     // bind the constant buffer and update sub resource
     renderer->updateObjectBuffer();
+
+    // texture repeat
+    for (const auto& mesh : model->getMeshes())
+    {
+        for (const auto& section : mesh->getMeshSubsections())
+        {
+            EngineInstance::getEngine()->getMaterialLibrary()->get(section.materialName)->repeatTexture = repeatTexture;
+        }
+    }
 
     // render our model
     model->render();
@@ -140,10 +173,13 @@ void Components::Sprite3D::display()
 {
   Models::ModelLibrary* lib = EngineInstance::getEngine()->getModelLibrary();
   Textures::TextureLibrary* tex = EngineInstance::getEngine()->getTextureLibrary();
+  Materials::MaterialLibrary* matLib = EngineInstance::getEngine()->getMaterialLibrary();
 
   // Assuming `currentModel` is a member variable that holds the name of the current model
-  static std::string currentModel = "";  // You might want to initialize this with your default model
+  static std::string currentModel = "";
+  static std::string currentMaterial = "";
 
+  // Assign Models
   if (ImGui::TreeNode("Models"))
   {
     for (const auto& modelEntry : lib->models)
@@ -169,36 +205,35 @@ void Components::Sprite3D::display()
     ImGui::TreePop();
   }
 
-  if (ImGui::TreeNode("Textures"))
+  // Assign materials
+  if (ImGui::TreeNode("Materials"))
   {
-    for (const auto& entry : tex->textures)
-    {
-      const std::string& name = entry.first;
-      bool isSelected = (name == currentModel);
-
-      if (ImGui::Selectable(name.c_str(), isSelected))
+      for (const auto& mat : matLib->getMaterials())
       {
-        currentModel = name;
-      }
+          const std::string& name = mat.first;
+          bool isSelected = (name == currentMaterial);
 
-      if (isSelected)
-      {
-        ImGui::SetItemDefaultFocus();
+          // Assign the material
+          if (ImGui::Selectable(name.c_str(), isSelected))
+          {
+              currentMaterial = name;
+              model->assignMaterial(matLib->get(currentMaterial));
+          }
+
+          if (isSelected)
+          {
+              ImGui::SetItemDefaultFocus();
+          }
       }
-    }
-    ImGui::TreePop();
+      ImGui::TreePop();
   }
+
 }
 
 // set this model given a name
 void Components::Sprite3D::setModel(const std::string modelName)
 {
   model->load(modelName);
-}
-
-void Components::Sprite3D::setTextureRepeat(bool val)
-{
-  repeatTexture = val;
 }
 
 // get the Sprite3D's model
@@ -217,4 +252,9 @@ void Components::Sprite3D::setAlpha(float newAlpha)
 float Components::Sprite3D::getAlpha()
 {
   return alpha;
+}
+
+void Components::Sprite3D::setTextureRepeat(bool val)
+{
+    repeatTexture = val;
 }
