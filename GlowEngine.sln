@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.7.34221.43
+VisualStudioVersion = 17.14.36408.4 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GlowEngine", "GlowEngine\GlowEngine.vcxproj", "{C74D0A9A-958E-4D70-ACBD-4C71A60ABCFD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GlowEngine", "GlowEngine.vcxproj", "{C74D0A9A-958E-4D70-ACBD-4C71A60ABCFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {63D3DB8E-8389-4AA2-8DE5-508758F94DD7}
+		SolutionGuid = {97159E76-849C-4472-BD15-83B94B99F92D}
 	EndGlobalSection
 EndGlobal
