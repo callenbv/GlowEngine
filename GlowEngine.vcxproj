@@ -302,10 +302,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <CustomBuildBeforeTargets />
     <CustomBuildAfterTargets />
+    <OutDir>$(SolutionDir)build\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\intermediate\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <CustomBuildBeforeTargets />
     <CustomBuildAfterTargets />
+    <OutDir>$(SolutionDir)build\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\intermediate\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -394,8 +398,8 @@
       </Command>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy /y /d "$(ProjectDir)Lib\*.dll" "$(OutDir)" &gt;nul</Command>
+      <Message>Copy DLLs into exe folder</Message>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>
@@ -429,8 +433,8 @@
       </Command>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy /y /d "$(ProjectDir)Lib\*.dll" "$(OutDir)" &gt;nul</Command>
+      <Message>Copy DLLs into exe folder</Message>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>
