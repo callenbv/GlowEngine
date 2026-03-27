@@ -1,0 +1,6 @@
+{
+    "name": "Tree",
+    "singleTexture": true,
+    "texture": "Wood",
+    "model": "Tree2"
+}

@@ -1,0 +1,273 @@
+Failed to open Tree1
+ne...
+Console: Loaded sound Assets/Audio\Sound\Dialog.ogg
+Console: Loaded sound Assets/Audio\Sound\Door.mp3
+Console: Loaded sound Assets/Audio\Music\Forest.ogg
+Console: Loaded sound Assets/Audio\Music\Sunset.wav
+Console: Added new texture BarkDecidious0143_5_S to library
+Console: Added new texture BarkDecidious0194_7_S to library
+Console: Added new texture bark_0021 to library
+Console: Added new texture Bowl_Base_Color to library
+Console: Added new texture ChestModel to library
+Console: Added new texture Cobblestone to library
+Console: Added new texture Crystal to library
+Console: Added new texture DB2X2_L01 to library
+Console: Added new texture DB2X2_L01_Spec to library
+Console: Added new texture File to library
+Console: Added new texture InvisibleIcon to library
+Console: Added new texture Leaves to library
+Console: Added new texture Leaves0120_35_S to library
+Console: Added new texture Leaves0142_4_S to library
+Console: Added new texture Leaves0156_1_S to library
+Console: Added new texture LeavesPixel to library
+Console: Added new texture LockedIcon to library
+Console: Added new texture Moss to library
+Console: Added new texture Mushroom to library
+Console: Added new texture PauseButton to library
+Console: Added new texture PlayButton to library
+Console: Added new texture render1hdcool to library
+Console: Added new texture Rock-Texture-Surface to library
+Console: Added new texture Schilling to library
+Console: Added new texture Shadow to library
+Console: Added new texture StopButton to library
+Console: Added new texture Sun to library
+Console: Added new texture TreeTexture to library
+Console: Added new texture VisibleIcon to library
+Console: Added new texture Wood to library
+Console: Added new texture WoodPlanks to library
+Console: Added material RedMaterial
+Console: Added new mesh Quad
+Console: Added new material Material
+Console: Added new mesh Cube
+Console: Added new model Cube to library
+Console: Added new material DefaultMaterial
+Console: Added new mesh Cylinder
+Console: Added new mesh Cylinder.001
+Console: Added new mesh Cylinder.002
+Console: Added new mesh Cylinder.003
+Console: Added new model Campfire to library
+Console: Used cached material DefaultMaterial
+Console: Added new mesh Cube.001
+Console: Added new model Crystal to library
+Console: Used cached material DefaultMaterial
+Console: Used cached material Material
+Console: Added new mesh Cube
+Console: Added new model Cube to library
+Console: Used cached material DefaultMaterial
+Console: Added new mesh Cylinder
+Console: Added new model Cylinder to library
+Console: Used cached material DefaultMaterial
+Console: Added new material Material.001
+Console: Added new mesh Cube
+Console: Added new model Door to library
+Console: Used cached material DefaultMaterial
+Console: Added new mesh Icosphere
+Console: Added new model IcoSphere to library
+Console: Used cached material DefaultMaterial
+Console: Added new material blinn1SG
+Console: Added new material initialShadingGroup
+Console: Added new mesh M4_carbine:desmont:verticalgrip
+Console: Added new mesh M4_carbine:desmont:magpul20rnd
+Console: Added new mesh M4_carbine:pCylinder7
+Console: Added new mesh M4_carbine:pCylinder8
+Console: Added new mesh M4_carbine:pCylinder9
+Console: Added new mesh M4_carbine:pCylinder10
+Console: Added new mesh M4_carbine:pCube25
+Console: Added new mesh M4_carbine:pCube26
+Console: Added new mesh M4_carbine:pPipe2
+Console: Added new mesh M4_carbine:pPipe3
+Console: Added new mesh M4_carbine:pPipe4
+Console: Added new mesh M4_carbine:pPipe5
+Console: Added new mesh M4_carbine:pCube27
+Console: Added new mesh M4_carbine:pCube28
+Console: Added new mesh M4_carbine:pCube29
+Console: Added new mesh M4_carbine:pCube30
+Console: Added new mesh M4_carbine:polySurface11
+Console: Added new mesh M4_carbine:polySurface12
+Console: Added new mesh M4_carbine:polySurface13
+Console: Added new mesh M4_carbine:polySurface14
+Console: Added new mesh M4_carbine:polySurface15
+Console: Added new mesh M4_carbine:polySurface16
+Console: Added new mesh M4_carbine:polySurface17
+Console: Added new mesh M4_carbine:polySurface18
+Console: Added new mesh M4_carbine:polySurface19
+Console: Added new mesh M4_carbine:pPlane1
+Console: Added new mesh pCube1
+Console: Added new mesh pCylinder1
+Console: Added new mesh M4_carbine:pCube7 M4_carbine:group2
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCylinder1
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCylinder2
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCube1
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCube4
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCube6
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCube5
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCube3
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCube8
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCube9
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCube10
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCube11
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCube12
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCylinder3
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCylinder4
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCube13
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCube14
+Console: Added new mesh M4_carbine:group2 M4_carbine:pCube15
+Console: Added new mesh M4_carbine:group2 M4_carbine:polySurface2
+Console: Added new mesh M4_carbine:pCube21 M4_carbine:group10
+Console: Added new mesh M4_carbine:group10 M4_carbine:pCylinder5
+Console: Added new mesh M4_carbine:group10 M4_carbine:pCylinder6
+Console: Added new mesh M4_carbine:group10 M4_carbine:pCube20
+Console: Added new mesh M4_carbine:group10 M4_carbine:pSphere1
+Console: Added new mesh M4_carbine:group10 M4_carbine:pCube19
+Console: Added new mesh M4_carbine:group10 M4_carbine:pSphere2
+Console: Added new mesh M4_carbine:pCylinder13 M4_carbine:group12
+Console: Added new mesh M4_carbine:group12 M4_carbine:pCylinder12
+Console: Added new mesh M4_carbine:group12 M4_carbine:polySurface5
+Console: Added new mesh M4_carbine:polySurface10 M4_carbine:polySurface6
+Console: Added new mesh M4_carbine:pCube2 M4_carbine:group16
+Console: Added new mesh M4_carbine:group16 M4_carbine:pCylinder17
+Console: Added new mesh M4_carbine:group16 M4_carbine:pCylinder18
+Console: Added new mesh M4_carbine:group16 M4_carbine:pCylinder19
+Console: Added new mesh M4_carbine:group16 M4_carbine:pCylinder20
+Console: Added new mesh M4_carbine:group16 M4_carbine:pCylinder21
+Console: Added new mesh M4_carbine:group16 M4_carbine:pCylinder22
+Console: Added new mesh M4_carbine:group16 M4_carbine:pCylinder23
+Console: Added new mesh M4_carbine:group16 M4_carbine:pCylinder24
+Console: Added new mesh M4_carbine:group16 M4_carbine:pCylinder25
+Console: Added new mesh M4_carbine:group16 M4_carbine:pCylinder26
+Console: Added new mesh M4_carbine:group16 M4_carbine:pCylinder27
+Console: Added new mesh M4_carbine:group16 M4_carbine:pCylinder28
+Console: Added new mesh M4_carbine:pPipe6 M4_carbine:group15 M4_carbine:group14
+Console: Added new mesh M4_carbine:group15 M4_carbine:group14 M4_carbine:pCylinder16
+Console: Added new mesh M4_carbine:group15 M4_carbine:group14 M4_carbine:pCube32
+Console: Added new mesh M4_carbine:polySurface6 M4_carbine:polySurface7 group1 M4_carbine:group13
+Console: Added new mesh M4_carbine:polySurface6 group1 M4_carbine:group13 M4_carbine:polySurface9
+Console: Added new mesh M4_carbine:polySurface6 group1 M4_carbine:group13 M4_carbine:polySurface8
+Console: Added new model M4A1 to library
+Console: Used cached material DefaultMaterial
+Console: Added new material CapMaterial
+Console: Added new material GroundMaterial
+Console: Added new material MushroomBorder
+Console: Added new material MushroomInnnerCap
+Console: Added new material StemMaterial
+Console: Added new mesh MushroomStem
+Console: Added new mesh MushroomBorder
+Console: Added new mesh MushroomCap
+Console: Added new mesh MushroomBorder
+Console: Added new mesh MushroomInnnerCap
+Console: Added new mesh Plane
+Console: Added new mesh MushroomStem.001
+Console: Added new mesh MushroomBorder
+Console: Added new mesh MushroomCap.001
+Console: Added new mesh MushroomBorder
+Console: Added new mesh MushroomInnnerCap
+Console: Added new model Mushroom to library
+Console: Used cached material DefaultMaterial
+Console: Used cached material Material.001
+Console: Added new mesh Cylinder
+Console: Added new mesh Cube
+Console: Added new model Chest to library
+Console: Used cached material DefaultMaterial
+Console: Used cached material Material.001
+Console: Added new mesh Cylinder
+Console: Added new mesh Cube
+Console: Added new model Chesty to library
+Console: Used cached material DefaultMaterial
+Console: Added new mesh Cube
+Console: Added new model CircleCube to library
+Console: Used cached material DefaultMaterial
+Console: Added new mesh Suzanne
+Console: Added new model Monkey to library
+Console: Used cached material DefaultMaterial
+Console: Added new mesh Torus.001
+Console: Added new model Torus to library
+Console: Used cached material DefaultMaterial
+Console: Added new material Leaves
+Console: Added new material Wood
+Console: Added new mesh Cube
+Console: Added new mesh Icosphere
+Console: Added new mesh Leaves
+Console: Added new mesh Icosphere.002
+Console: Added new mesh Icosphere.003
+Console: Added new model Tree to library
+Console: Used cached material DefaultMaterial
+Console: Added new mesh Icosphere
+Console: Added new model Pebble to library
+Console: Used cached material DefaultMaterial
+Console: Added new mesh Plane
+Console: Added new model Plane to library
+Console: Used cached material DefaultMaterial
+Console: Added new material RockMaterial
+Console: Added new material RockMaterial.001
+Console: Added new mesh Plane
+Console: Added new mesh Cube
+Console: Added new model Rock1 to library
+Console: Used cached material DefaultMaterial
+Console: Added new material Bowl
+Console: Added new material EggBody
+Console: Added new material Green_Onion
+Console: Added new material Potato
+Console: Added new material Soup
+Console: Added new material Stepping_Stool
+Console: Added new material Yoke
+Console: Added new mesh off
+Console: Added new mesh off
+Console: Added new mesh off
+Console: Added new mesh off
+Console: Added new mesh Egg_Body_EggBody
+Console: Added new mesh Yolk_Yoke
+Console: Added new mesh Egg_Body.001_EggBody
+Console: Added new mesh Yolk.001_Yoke
+Console: Added new mesh Potato_Potato
+Console: Added new mesh Potato.001_Potato
+Console: Added new mesh Potato.002_Potato
+Console: Added new mesh Potato.003_Potato
+Console: Added new mesh Potato.004_Potato
+Console: Added new mesh Potato.005_Potato
+Console: Added new mesh Potato.006_Potato
+Console: Added new mesh Green_Onion_Green_Onion
+Console: Added new mesh Green_Onion.001_Green_Onion
+Console: Added new mesh Green_Onion.002_Green_Onion
+Console: Added new mesh bowl_Bowl
+Console: Added new mesh Soup_Soup
+Console: Added new mesh Stool_Stepping_Stool
+Console: Added new model Soup to library
+Console: Used cached material DefaultMaterial
+Console: Added new mesh Landscape
+Console: Added new model Terrain to library
+Console: Used cached material DefaultMaterial
+Console: Added new mesh Cylinder
+Console: Added new mesh Cube
+Console: Added new mesh Cube.001
+Console: Added new mesh Cube.002
+Console: Added new model Torch to library
+Console: Used cached material DefaultMaterial
+Console: Added new material Trank_bark
+Console: Added new material polySurface1SG1
+Console: Added new mesh Tree_polySurface1 g1 polySurface1
+Console: Added new mesh Tree_polySurface1 g1 g2 polySurface1
+Console: Added new model Tree to library
+Console: Used cached material DefaultMaterial
+Console: Added new material Material.002
+Console: Added new material Material.003
+Console: Added new material Material.004
+Console: Added new material Material.005
+Console: Added new material Material.006
+Console: Added new material Material.007
+Console: Added new mesh Cylinder
+Console: Added new mesh Cone
+Console: Added new mesh Cone.001
+Console: Added new mesh Cone.002
+Console: Added new mesh Cylinder.001
+Console: Added new mesh Cylinder.002
+Console: Added new model Tree2 to library
+Console: Created entity archetype from Data/Entities\Crystal.json
+Console: Created entity archetype from Data/Entities\Monkey.json
+Console: Created entity archetype from Data/Entities\Mushroom.json
+Console: Created entity archetype from Data/Entities\Player.json
+Console: Created entity archetype from Data/Entities\Rock.json
+Console: Created entity archetype from Data/Entities\Soup.json
+Console: Created entity archetype from Data/Entities\Tree.json
+ERROR: Failed to load model Tree1
+Console: Loaded snapshot from Data/Maps/Scene_MapData.json
+Console: Done!

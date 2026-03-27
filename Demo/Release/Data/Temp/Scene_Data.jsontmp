@@ -1,0 +1,196 @@
+{
+    "Entities": {
+        "Root": {
+            "Entity1": {
+                "Components": {
+                    "Sprite3D": {
+                        "Model": {
+                            "value": "Plane"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        },
+                        "Shadow": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": 0.0,
+                                "y": -2.000000476837158,
+                                "z": 0.0
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 55.0,
+                                "y": 3.0,
+                                "z": 55.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity2": {
+                "Components": {
+                    "Sprite3D": {
+                        "Model": {
+                            "value": "Cube"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        },
+                        "Shadow": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": 22.700050354003906,
+                                "y": 9.299999237060547,
+                                "z": 0.0
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 3.0,
+                                "y": 3.0,
+                                "z": 3.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity3": {
+                "Components": {
+                    "Sprite3D": {
+                        "Model": {
+                            "value": "Cube"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        },
+                        "Shadow": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": 12.40001106262207,
+                                "y": 0.0,
+                                "z": -14.300018310546875
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 3.0,
+                                "y": 3.0,
+                                "z": 3.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity4": {
+                "Components": {
+                    "Sprite3D": {
+                        "Model": {
+                            "value": "Cube"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        },
+                        "Shadow": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": 16.100025177001953,
+                                "y": 12.40001106262207,
+                                "z": -18.50003433227539
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 5.0,
+                                "y": 25.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 8.0,
+                                "y": 3.0,
+                                "z": 3.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity5": {
+                "Components": {
+                    "Sprite3D": {
+                        "Model": {
+                            "value": "Cube"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        },
+                        "Shadow": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": -22.300048828125,
+                                "y": 12.40001106262207,
+                                "z": -7.799994945526123
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 25.0,
+                                "y": 55.0,
+                                "z": 55.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 8.0,
+                                "y": 3.0,
+                                "z": 3.0
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

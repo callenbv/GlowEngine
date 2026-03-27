@@ -1,0 +1,6 @@
+{
+    "name": "Player",
+    "texture": "Schilling",
+    "model": "Cube",
+    "visible": false
+}

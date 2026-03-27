@@ -1,0 +1,1013 @@
+{
+    "Entities": {
+        "Root": {
+            "Block3": {
+                "Components": {
+                    "BoxCollider": {
+                        "Automatically Resize Hitbox": {
+                            "value": true
+                        },
+                        "Hitbox Size": {
+                            "value": {
+                                "x": 30.0,
+                                "y": 30.0,
+                                "z": 30.0
+                            }
+                        },
+                        "Static": {
+                            "value": true
+                        }
+                    },
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Leaves",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Cube"
+                        },
+                        "Repeat Texture": {
+                            "value": true
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": 31.700084686279297,
+                                "y": -6.999995231628418,
+                                "z": 3.7999987602233887
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 15.0,
+                                "y": 15.0,
+                                "z": 15.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Block4": {
+                "Components": {
+                    "BoxCollider": {
+                        "Automatically Resize Hitbox": {
+                            "value": true
+                        },
+                        "Hitbox Size": {
+                            "value": {
+                                "x": 30.0,
+                                "y": 30.0,
+                                "z": 30.0
+                            }
+                        },
+                        "Static": {
+                            "value": true
+                        }
+                    },
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Leaves",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Cube"
+                        },
+                        "Repeat Texture": {
+                            "value": true
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": -26.500062942504883,
+                                "y": -10.200002670288086,
+                                "z": 1.341104507446289e-07
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 15.0,
+                                "y": 15.0,
+                                "z": 15.0
+                            }
+                        }
+                    }
+                }
+            },
+            "BlockSmall": {
+                "Components": {
+                    "BoxCollider": {
+                        "Automatically Resize Hitbox": {
+                            "value": true
+                        },
+                        "Hitbox Size": {
+                            "value": {
+                                "x": 30.0,
+                                "y": 30.0,
+                                "z": 30.0
+                            }
+                        },
+                        "Static": {
+                            "value": true
+                        }
+                    },
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Leaves",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Cube"
+                        },
+                        "Repeat Texture": {
+                            "value": true
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": 23.900054931640625,
+                                "y": -13.00001335144043,
+                                "z": 8.799997329711914
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 15.0,
+                                "y": 15.0,
+                                "z": 15.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity10": {
+                "Components": {
+                    "BoxCollider": {
+                        "Automatically Resize Hitbox": {
+                            "value": true
+                        },
+                        "Hitbox Size": {
+                            "value": {
+                                "x": 17.590139389038086,
+                                "y": 21.53261947631836,
+                                "z": 16.805681228637695
+                            }
+                        },
+                        "Static": {
+                            "value": true
+                        }
+                    },
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Trank_bark",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "polySurface1SG1",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Tree"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": -14.000017166137695,
+                                "y": -2.9999990463256836,
+                                "z": -48.29983901977539
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 6.0,
+                                "y": 6.0,
+                                "z": 6.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity11": {
+                "Components": {
+                    "BoxCollider": {
+                        "Automatically Resize Hitbox": {
+                            "value": true
+                        },
+                        "Hitbox Size": {
+                            "value": {
+                                "x": 23.453519821166992,
+                                "y": 28.710159301757813,
+                                "z": 22.407575607299805
+                            }
+                        },
+                        "Static": {
+                            "value": true
+                        }
+                    },
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Trank_bark",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "polySurface1SG1",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Tree"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": -5.299997329711914,
+                                "y": -2.0999999046325684,
+                                "z": 51.39978790283203
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 255.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 8.0,
+                                "y": 8.0,
+                                "z": 8.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity15": {
+                "Components": {
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "RockMaterial.001",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "RockMaterial",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Rock1"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": -38.29998779296875,
+                                "y": -3.200000286102295,
+                                "z": 32.000083923339844
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 3.0,
+                                "y": 3.0,
+                                "z": 3.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity17": {
+                "Components": {
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "RockMaterial.001",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "RockMaterial",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Rock1"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": -15.600021362304688,
+                                "y": -2.5,
+                                "z": -62.299625396728516
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 50.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 2.0,
+                                "y": 2.0,
+                                "z": 2.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity18": {
+                "Components": {
+                    "BoxCollider": {
+                        "Automatically Resize Hitbox": {
+                            "value": true
+                        },
+                        "Hitbox Size": {
+                            "value": {
+                                "x": 43.97534942626953,
+                                "y": 53.83155059814453,
+                                "z": 42.01420593261719
+                            }
+                        },
+                        "Static": {
+                            "value": true
+                        }
+                    },
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Trank_bark",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "polySurface1SG1",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Tree"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": 24.200056076049805,
+                                "y": -2.700000047683716,
+                                "z": 43.59990692138672
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 25.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 15.0,
+                                "y": 15.0,
+                                "z": 15.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity4": {
+                "Components": {
+                    "BoxCollider": {
+                        "Automatically Resize Hitbox": {
+                            "value": true
+                        },
+                        "Hitbox Size": {
+                            "value": {
+                                "x": 8.795069694519043,
+                                "y": 10.76630973815918,
+                                "z": 8.402840614318848
+                            }
+                        },
+                        "Static": {
+                            "value": true
+                        }
+                    },
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Trank_bark",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "polySurface1SG1",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Tree"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": -23.20005226135254,
+                                "y": -3.999998092651367,
+                                "z": -38.89998245239258
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 3.0,
+                                "y": 3.0,
+                                "z": 3.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity5": {
+                "Components": {
+                    "BoxCollider": {
+                        "Automatically Resize Hitbox": {
+                            "value": true
+                        },
+                        "Hitbox Size": {
+                            "value": {
+                                "x": 14.65845012664795,
+                                "y": 17.943849563598633,
+                                "z": 14.004734992980957
+                            }
+                        },
+                        "Static": {
+                            "value": true
+                        }
+                    },
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Trank_bark",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "polySurface1SG1",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Tree"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": -16.900028228759766,
+                                "y": -3.5999984741210938,
+                                "z": 39.39997100830078
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 125.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 5.0,
+                                "y": 5.0,
+                                "z": 5.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity6": {
+                "Components": {
+                    "BoxCollider": {
+                        "Automatically Resize Hitbox": {
+                            "value": true
+                        },
+                        "Hitbox Size": {
+                            "value": {
+                                "x": 17.590139389038086,
+                                "y": 21.53261947631836,
+                                "z": 16.805681228637695
+                            }
+                        },
+                        "Static": {
+                            "value": true
+                        }
+                    },
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Trank_bark",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "polySurface1SG1",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Tree"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": 15.30002212524414,
+                                "y": -2.1999998092651367,
+                                "z": -47.599849700927734
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 6.0,
+                                "y": 6.0,
+                                "z": 6.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity7": {
+                "Components": {
+                    "BoxCollider": {
+                        "Automatically Resize Hitbox": {
+                            "value": true
+                        },
+                        "Hitbox Size": {
+                            "value": {
+                                "x": 3.0,
+                                "y": 3.0,
+                                "z": 3.0
+                            }
+                        },
+                        "Static": {
+                            "value": true
+                        }
+                    },
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Leaves",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Tree1"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": 89.99919891357422,
+                                "y": -6.699995517730713,
+                                "z": -29.90007972717285
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 3.0,
+                                "y": 3.0,
+                                "z": 3.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity8": {
+                "Components": {
+                    "BoxCollider": {
+                        "Automatically Resize Hitbox": {
+                            "value": true
+                        },
+                        "Hitbox Size": {
+                            "value": {
+                                "x": 8.795069694519043,
+                                "y": 10.76630973815918,
+                                "z": 8.402840614318848
+                            }
+                        },
+                        "Static": {
+                            "value": true
+                        }
+                    },
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Trank_bark",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "polySurface1SG1",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Tree"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": 31.00008201599121,
+                                "y": -2.6999993324279785,
+                                "z": -40.59995651245117
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 3.0,
+                                "y": 3.0,
+                                "z": 3.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Entity9": {
+                "Components": {
+                    "BoxCollider": {
+                        "Automatically Resize Hitbox": {
+                            "value": true
+                        },
+                        "Hitbox Size": {
+                            "value": {
+                                "x": 35.18027877807617,
+                                "y": 43.06523895263672,
+                                "z": 33.61136245727539
+                            }
+                        },
+                        "Static": {
+                            "value": true
+                        }
+                    },
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Trank_bark",
+                                "section": 0
+                            },
+                            {
+                                "mesh": 1,
+                                "name": "polySurface1SG1",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Tree"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": -0.10000013560056686,
+                                "y": -2.299999713897705,
+                                "z": -62.5996208190918
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 12.0,
+                                "y": 12.0,
+                                "z": 12.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Plane": {
+                "Components": {
+                    "BoxCollider": {
+                        "Automatically Resize Hitbox": {
+                            "value": true
+                        },
+                        "Hitbox Size": {
+                            "value": {
+                                "x": 500.0,
+                                "y": 0.0,
+                                "z": 500.0
+                            }
+                        },
+                        "Static": {
+                            "value": true
+                        }
+                    },
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "Material.004",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Plane"
+                        },
+                        "Repeat Texture": {
+                            "value": true
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": 0.0,
+                                "y": -2.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 500.0,
+                                "y": 500.0,
+                                "z": 500.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Player": {
+                "Components": {
+                    "BoxCollider": {
+                        "Automatically Resize Hitbox": {
+                            "value": true
+                        },
+                        "Hitbox Size": {
+                            "value": {
+                                "x": 5.468751907348633,
+                                "y": 3.9375,
+                                "z": 3.406248092651367
+                            }
+                        },
+                        "Static": {
+                            "value": false
+                        }
+                    },
+                    "Physics": {
+                        "Acceleration": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Gravity": {
+                            "value": 35.0
+                        },
+                        "Maximum Velocity": {
+                            "value": 25.0
+                        },
+                        "Velocity": {
+                            "value": {
+                                "x": -49.99626922607422,
+                                "y": 0.0,
+                                "z": -0.6108500957489014
+                            }
+                        }
+                    },
+                    "PlayerBehavior": {
+                        "God Mode": {
+                            "value": false
+                        },
+                        "Jump Height": {
+                            "value": 25.0
+                        },
+                        "Movement Speed": {
+                            "value": 50.0
+                        }
+                    },
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "DefaultMaterial",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Pebble"
+                        },
+                        "Repeat Texture": {
+                            "value": false
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 5.268746852874756,
+                                "z": 0.0
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 1.0,
+                                "y": 1.0,
+                                "z": 1.0
+                            }
+                        }
+                    }
+                }
+            },
+            "Terrain": {
+                "Components": {
+                    "Sprite3D": {
+                        "Materials": [
+                            {
+                                "mesh": 0,
+                                "name": "RockMaterial.001",
+                                "section": 0
+                            }
+                        ],
+                        "Model": {
+                            "value": "Terrain"
+                        },
+                        "Repeat Texture": {
+                            "value": true
+                        }
+                    },
+                    "Transform": {
+                        "Position": {
+                            "value": {
+                                "x": 225.50454711914063,
+                                "y": -5.499995231628418,
+                                "z": -12.80001449584961
+                            }
+                        },
+                        "Rotation": {
+                            "value": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            }
+                        },
+                        "Scale": {
+                            "value": {
+                                "x": 2.0,
+                                "y": 2.0,
+                                "z": 2.0
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -369,3 +369,6 @@ cotton_eye_joe.mp3
 
 # ignore imgui.ini
 imgui.ini
+
+# force include demo folder
+!Demo/**

@@ -1,0 +1,6 @@
+{
+    "name": "Rock",
+    "texture": "Cobblestone",
+    "singleTexture": true,
+    "model": "Rock"
+}
