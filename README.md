@@ -6,7 +6,7 @@ A custom 3D game engine built in C++ with DirectX 11, focused on real-time rende
 
 ## Demo
 
-1. Open the `Demo` folder
+1. Open the `Demo/Release` folder
 2. Run `GlowEngine.exe`  
 3. Explore the scene by pressing the "Play" button icon 
 
