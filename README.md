@@ -32,7 +32,6 @@ It includes a real-time rendering pipeline, an ECS-based architecture, and a cus
 ## Key Features
 
 ### Rendering
-- DirectX 11 renderer with shadow mapping  
 - HLSL shaders and lighting system  
 - Model and texture loading (Assimp, stb_image)  
 
