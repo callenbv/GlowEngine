@@ -22,6 +22,7 @@ Shaders::Shader::Shader(ID3D11Device* device_, std::wstring path, ShaderType typ
   if (FAILED(hr))
   {
     Logger::error("Failed to create shader blob");
+    throw std::exception("Shader Error");
   }
 
   switch (type)

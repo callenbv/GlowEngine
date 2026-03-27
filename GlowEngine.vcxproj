@@ -100,16 +100,12 @@
     <ClCompile Include="Source\Engine\Audio\Sound.cpp" />
     <ClCompile Include="Source\Engine\Audio\SoundLibrary.cpp" />
     <ClCompile Include="Source\Engine\Audio\SoundSystem.cpp" />
-    <ClCompile Include="Source\Engine\EngineInstance.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="Source\Engine\EngineInstance.cpp" />
     <ClCompile Include="Source\Engine\Entity\Actor.cpp" />
     <ClCompile Include="Source\Engine\Entity\Components\Collision\BoundingBox.cpp" />
     <ClCompile Include="Source\Engine\Entity\Components\Collision\BoxCollider.cpp" />
     <ClCompile Include="Source\Engine\Entity\Components\Collision\Collider.cpp" />
-    <ClCompile Include="Source\Engine\Entity\Components\Component.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="Source\Engine\Entity\Components\Component.cpp" />
     <ClCompile Include="Source\Engine\Entity\Components\Physical\Physics.cpp" />
     <ClCompile Include="Source\Engine\Entity\Components\Physical\Transform.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
@@ -224,6 +220,7 @@
     <FxCompile Include="Source\Shaders\PixelShader.hlsl">
       <DisableOptimizations Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DisableOptimizations>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
     </FxCompile>
     <FxCompile Include="Source\Shaders\UnlitPixelShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
@@ -232,6 +229,7 @@
     <FxCompile Include="Source\Shaders\VertexShader.hlsl">
       <DisableOptimizations Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DisableOptimizations>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
     </FxCompile>
     <FxCompile Include="Source\Shaders\VertexShadowMapShader.hlsl">
       <DisableOptimizations Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DisableOptimizations>
@@ -408,6 +406,9 @@
     <PreLinkEvent>
       <Command>call "$(SolutionDir)run.bat"</Command>
     </PreLinkEvent>
+    <FxCompile>
+      <ShaderModel>5.0</ShaderModel>
+    </FxCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -417,7 +418,11 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>
+  $(ProjectDir)Include;
+  $(ProjectDir)Include\Assimp\include;
+  $(ProjectDir)Source
+</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -443,6 +448,9 @@
     <PreLinkEvent>
       <Command>call "$(SolutionDir)run.bat"</Command>
     </PreLinkEvent>
+    <FxCompile>
+      <ShaderModel>5.0</ShaderModel>
+    </FxCompile>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
